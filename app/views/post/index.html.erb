@@ -1,0 +1,19 @@
+<hr>
+
+<% @posts.each do |post| %>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-3">
+			<h4><%= link_to "#{post.title}", post_path(post)%></h4>
+			<b>Posted by:</b> <%= post.author %>
+		</div>
+		<% if post.author == current_user.username %>
+			<div class="col-xs-1">
+				<p></p>
+				<p>edit</p>
+				<p><%= link_to "delete", post_path(post), :method => "delete", data: {confirm: "Are you shure?"} %></p>
+			</div>
+		<%end%>
+	</div>
+<hr>
+<%end%>
