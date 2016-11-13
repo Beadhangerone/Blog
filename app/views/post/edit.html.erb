@@ -1,1 +1,9 @@
-edit post
+<%= form_for $post, url: {action: "update"} do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title, class: 'form-control' %>
+
+	<%= f.label :text %>
+	<%= f.text_area :text, class: 'form-control' %>
+
+	<br><%= f.submit "Done", class: "btn btn-default" %>
+<%end%>	

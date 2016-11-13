@@ -15,7 +15,7 @@ class PostController < ApplicationController
     $post.author = current_user.username
     $post.save
 
-    redirect_to post_index_path
+    redirect_to post_path($post)
   end
 
   def show
@@ -33,5 +33,10 @@ class PostController < ApplicationController
   end
 
   def update
+    $post.title = params[:post][:title]
+    $post.text = params[:post][:text]
+    $post.save
+
+    redirect_to post_path($post)
   end
 end
