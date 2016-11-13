@@ -27,4 +27,11 @@ class PostController < ApplicationController
     @post.destroy
     redirect_to post_index_path
   end
+
+  def edit
+    $post = Post.find(params[:id])
+  end
+
+  def update
+  end
 end
