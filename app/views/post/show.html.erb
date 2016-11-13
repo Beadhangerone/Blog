@@ -1,5 +1,22 @@
-<h2><%= @post.title %></h2>
-<hr>
-<p><%= @post.text %></p>
-<hr>
-<p>Posted by: <b><i><%= @post.author %></i></b> on <b><i><%= @post.created_at %></i></b></p>
+
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-5">
+		<h2><%= @post.title %></h2>
+		<hr>
+		<p><%= @post.text %></p>
+		<hr>
+		<p>Posted by: <b><i><%= @post.author %></i></b> on <b><i><%= @post.created_at %></i></b></p>
+	</div>
+	<div class="col-xs-2">
+		<% if @post.author == current_user.username %>
+			<br><br><br><br>
+			<div class="list-group">
+				<%= link_to "Delete", post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
+				<%= link_to "Edit", edit_post_path(@post), class: "list-group-item"%>
+			</div>
+		<%end%>
+	</div>
+</div>
+
+
