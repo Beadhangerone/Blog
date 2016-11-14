@@ -4,11 +4,8 @@
 	padding: 5px;
 }
 
-.the-upper-image {
-	background-image: url(http://astoundify.com/marketing/forums/astoundify-header-bg.jpg);
-	height: 8cm;
-	background-size: cover;
-	background-position: center;
+.hint {
+	color: #bfbfbf;
 }
 
 /*

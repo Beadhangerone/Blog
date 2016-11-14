@@ -19,18 +19,40 @@
 	</div>
 </div>
 
-<div class="row">
+<br><div class="row"><hr>
+	<div class="col-xs-9">
+		<%= form_tag (post_comment_index_path(@post)) do %>
+			<%= label_tag :comment %>
+			<%= text_area_tag :comment, nil, class: 'form-control' %>
+			<br><%= submit_tag 'Add comment', class: 'btn btn-default' %>
+		<% end %>
+	</div>
+</div>
 
-	<%= form_tag (post_comment_index_path(@post)) do %>
-		<%= label_tag :comment %>
-		<%= text_field_tag :comment, nil, class: 'form-control' %>
-		<br><%= submit_tag 'Add comment', class: 'btn btn-default' %>
-	<% end %>
+<div class="row"><hr>
+	<div class="col-xs-9">
+		<%if @post.comments.length != 0%>
 
-	<%@post.comments.each do |comment|%>
-		<p><%= comment.comment %></p>
-	<% end %>
+			<%@post.comments.each do |comment|%>
+				<div class="border">
+					<p><b><%= comment.author %></b> sayd:</p>
 
+					<div class="row">
+
+						<div class="col-xs-10">
+							<p><%= comment.comment %></p>
+						</div>
+
+						<div class="col-xs-2">
+							<small><p class='hint'><%= comment.created_at %></p></small>
+						</div>
+					</div>
+				</div>	
+			<% end %>
+		<%else%>
+			<h5><p class='hint'>Your comment will be the first</p></h5>
+		<%end%>
+	</div>
 </div>
 
 
