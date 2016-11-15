@@ -1,7 +1,13 @@
 .border {
+	background-color: white;
 	border: 1px solid #e7e7e7;
 	border-radius: 3px;
 	padding: 5px;
+}
+
+.wall-papper {
+	background-image: url(http://www.clipartkid.com/images/510/ummm-hello-earthlings-welcome-to-my-super-awesome-tumblr-bitches-2FOwNi-clipart.png);
+	background-size: 26%;
 }
 
 .hint {
