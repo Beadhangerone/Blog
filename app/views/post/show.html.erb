@@ -9,24 +9,20 @@
 		<p>Posted by: <b><i><%= @post.author %></i></b> on <b><i><%= @post.created_at %></i></b></p>
 	</div>
 	<div class="col-xs-2">
-		<% if @post.author == current_user.username %>
 			<br><br><br><br>
 			<div class="list-group">
-				<%= link_to "Delete", post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
-				<%= link_to "Edit", edit_post_path(@post), class: "list-group-item"%>
+				<% if @post.author == current_user.username %>
+					<%= link_to "Delete", post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
+					<%= link_to "Edit", edit_post_path(@post), class: "list-group-item"%>
+					
+				<%else%>
+					<% if @likes.include?(current_user.username) %>
+						<%= link_to "Unlike", unlike_post_path(@post), method: "delete", class: "list-group-item" %>
+					<% else %>
+						<%= link_to "Like this post", like_post_path(@post), method: "post", class: "list-group-item" %>
+					<%end%>
+				<%end%>
 			</div>
-		<%else%>
-			<br><br><br><br>
-			<% if @likes.include?(current_user.username) %>
-				<div class="list-group">
-					<%= link_to "Unlike", unlike_post_path(@post), method: "delete", class: "list-group-item" %>
-				</div>
-			<% else %>
-				<div class="list-group">
-					<%= link_to "Like this post", like_post_path(@post), method: "post", class: "list-group-item" %>
-				</div>
-			<%end%>
-		<%end%>
 		<br>
 		<%= @post.likes.length %> people like it
 	</div>

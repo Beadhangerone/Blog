@@ -53,7 +53,7 @@ class PostController < ApplicationController
 
   def unlike
     @post = Post.find(params[:id])
-    @post.likes.where(:author = current_user.username).delete
+    @post.likes.where(author: current_user.username).take.delete
     redirect_to post_path(@post)
   end
 
