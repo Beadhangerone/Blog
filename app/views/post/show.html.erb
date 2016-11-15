@@ -15,7 +15,20 @@
 				<%= link_to "Delete", post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
 				<%= link_to "Edit", edit_post_path(@post), class: "list-group-item"%>
 			</div>
+		<%else%>
+			<br><br><br><br>
+			<% if @likes.include?(current_user.username) %>
+				<div class="list-group">
+					<%= link_to "Unlike", unlike_post_path(@post), method: "delete", class: "list-group-item" %>
+				</div>
+			<% else %>
+				<div class="list-group">
+					<%= link_to "Like this post", like_post_path(@post), method: "post", class: "list-group-item" %>
+				</div>
+			<%end%>
 		<%end%>
+		<br>
+		<%= @post.likes.length %> people like it
 	</div>
 </div>
 

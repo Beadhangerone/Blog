@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/profile' => 'home#my_profile'
+  post '/post/:id/like' =>"post#like", :as => 'like_post'
+  delete '/post/:id/unlike' =>"post#unlike", :as => 'unlike_post'
 
   resources :post do
     resources :comment, :except => [:show, :index, :new]

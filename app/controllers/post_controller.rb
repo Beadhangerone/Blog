@@ -21,6 +21,10 @@ class PostController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @likes = []
+    @post.likes.each do |like|
+      @likes << like.author
+    end
   end
 
   def destroy
@@ -40,4 +44,17 @@ class PostController < ApplicationController
 
     redirect_to post_path($post)
   end
+
+  def like
+    @post = Post.find(params[:id])
+    like = @post.likes.create(author: current_user.username)
+    redirect_to post_path(@post)
+  end
+
+  def unlike
+    @post = Post.find(params[:id])
+    @post.likes.where(:author = current_user.username).delete
+    redirect_to post_path(@post)
+  end
+
 end
