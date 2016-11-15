@@ -1,1 +1,5 @@
-<h3><b>Username:</b> <%= current_user.username %></h3>
+<h3><b>Username: </b><%= current_user.username %></h3>
+<p><b>Sign in count: </b><%= current_user.sign_in_count %></p>
+<p><b>Current sign in at:</b> <%= current_user.current_sign_in_at %></p>
+<p><b>Current sign in ip: </b><%= current_user.current_sign_in_ip %></p>
+<p><b>Registered at: </b><%= current_user.created_at %></p>

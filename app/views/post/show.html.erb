@@ -33,7 +33,7 @@
 	<div class="col-xs-9">
 		<%if @post.comments.length != 0%>
 
-			<%@post.comments.each do |comment|%>
+			<%@post.comments.reverse.each do |comment|%>
 				<div class="border">
 					<p><b><%= comment.author %></b> sayd:</p>
 
