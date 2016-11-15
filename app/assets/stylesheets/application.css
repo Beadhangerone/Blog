@@ -1,8 +1,11 @@
 .border {
-	background-color: white;
 	border: 1px solid #e7e7e7;
 	border-radius: 3px;
 	padding: 5px;
+}
+.main-block {
+	background-color: white;
+	min-height: 750px;
 }
 
 .wall-papper {
