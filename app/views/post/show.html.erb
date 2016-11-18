@@ -12,12 +12,12 @@
 			<br><br><br><br>
 			<div class="list-group">
 				<% if @post.author == current_user.username %>
-					<%= link_to "Delete", post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
-					<%= link_to "Edit", edit_post_path(@post), class: "list-group-item"%>
+					<%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete".html_safe, post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
+					<%= link_to "<span class='glyphicon glyphicon-pencil'></span> Edit".html_safe, edit_post_path(@post), class: "list-group-item"%>
 					
 				<%else%>
 					<% if @likes.include?(current_user.username) %>
-						<%= link_to "Unlike", unlike_post_path(@post), method: "delete", class: "list-group-item" %>
+						<%= link_to "<span class='glyphicon glyphicon-thumbs-down'></span> Unlike".html_safe, unlike_post_path(@post), method: "delete", class: "list-group-item" %>
 					<% else %>
 						<%= link_to "<span class='glyphicon glyphicon-thumbs-up'></span> Like this post".html_safe, like_post_path(@post), method: "post", class: "list-group-item" %>
 					<%end%>
