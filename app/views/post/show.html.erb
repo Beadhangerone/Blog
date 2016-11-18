@@ -19,7 +19,7 @@
 					<% if @likes.include?(current_user.username) %>
 						<%= link_to "Unlike", unlike_post_path(@post), method: "delete", class: "list-group-item" %>
 					<% else %>
-						<%= link_to "Like this post", like_post_path(@post), method: "post", class: "list-group-item" %>
+						<%= link_to "<span class='glyphicon glyphicon-thumbs-up'></span> Like this post".html_safe, like_post_path(@post), method: "post", class: "list-group-item" %>
 					<%end%>
 				<%end%>
 			</div>
@@ -31,7 +31,7 @@
 <br><div class="row"><hr>
 	<div class="col-xs-9">
 		<%= form_tag (post_comment_index_path(@post)) do %>
-			<%= label_tag :comment %>
+			<%= label_tag :comment%> <span class='glyphicon glyphicon-comment'></span>
 			<%= text_area_tag :comment, nil, class: 'form-control' %>
 			<br><%= submit_tag 'Add comment', class: 'btn btn-default' %>
 		<% end %>
