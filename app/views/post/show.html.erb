@@ -33,7 +33,10 @@
 		<%= form_tag (post_comment_index_path(@post)) do %>
 			<%= label_tag :comment%> <span class='glyphicon glyphicon-comment'></span>
 			<%= text_area_tag :comment, nil, class: 'form-control' %>
-			<br><%= submit_tag 'Add comment', class: 'btn btn-default' %>
+			<br>
+			<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
+				<span class='glyphicon glyphicon-ok'></span> Add a comment
+			<%end%>
 		<% end %>
 	</div>
 </div>

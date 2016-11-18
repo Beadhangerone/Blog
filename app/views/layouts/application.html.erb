@@ -35,13 +35,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><%= link_to "Show all posts", post_index_path %></li>
-                <li><%= link_to "Write a new post", new_post_path %></li>
+                <li><%= link_to "<span class='glyphicon glyphicon-list-alt'></span> Show all posts".html_safe, post_index_path %></li>
+                <li><%= link_to "<span class='glyphicon glyphicon-pencil'></span> Write a new post".html_safe, new_post_path %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <%if user_signed_in?%>
-                  <li><%= link_to  "<span class='glyphicon glyphicon-user'></span>  #{current_user.username}".html_safe, profile_path %></li>
-                  <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to  "<span class='glyphicon glyphicon-user'></span> #{current_user.username}".html_safe, profile_path %></li>
+                  <li><%= link_to "<span class='glyphicon glyphicon-log-out'></span> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>
                 <%else%>
                   <li><%= link_to 'Sign up', new_user_registration_path%></li>
                   <li><%= link_to 'Sign in', new_user_session_path%></li>
