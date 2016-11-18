@@ -24,7 +24,7 @@
 				<%end%>
 			</div>
 		<br>
-		<%= @post.likes.length %> people like it
+		<%=link_to "#{@post.likes.length}", '#', toggle:'tooltip', title: @likes.join(', ') %> people like it
 	</div>
 </div>
 
