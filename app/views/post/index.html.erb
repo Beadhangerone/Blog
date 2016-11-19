@@ -2,8 +2,7 @@
 
 <% @posts.each do |post| %>
 	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-3">
+		<div class="col-xs-offset-1 col-xs-11">
 			<h4><%= link_to "#{post.title}", post_path(post)%></h4>
 			<b>Posted by:</b> <%= post.author %>
 		</div>

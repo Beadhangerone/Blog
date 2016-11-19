@@ -62,7 +62,7 @@ class PostController < ApplicationController
 
   def author?
     post = Post.find(params[:id])
-    if not post.author == current_user
+    if post.author != current_user.username
       redirect_to post_path(post)
     end
   end
