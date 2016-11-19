@@ -16,6 +16,8 @@ class PostController < ApplicationController
     $post.text = params[:post][:text]
     $post.author = current_user.username
     $post.save
+    current_user.amount_of_posts += 1
+    current_user.save
 
     redirect_to post_path($post)
   end
@@ -31,6 +33,9 @@ class PostController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    current_user.amount_of_posts -= 1
+    current_user.save
+
     redirect_to post_index_path
   end
 

@@ -5,7 +5,7 @@
 		<hr>
 		<p><%= @post.text %></p>
 		<hr>
-		<p>Posted by: <b><i><%= @post.author %></i></b> on <b><i><%= @post.created_at %></i></b></p>
+		<p>Posted by: <b><i><%=link_to @post.author, "/account/#{@post.author}" %></i></b> on <b><i><%= @post.created_at %></i></b></p>
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
 			<div class="hidden-xs"><br><br><br><br></div>
