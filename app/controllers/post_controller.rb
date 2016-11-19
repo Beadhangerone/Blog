@@ -1,6 +1,7 @@
 class PostController < ApplicationController
   layout "application"
   before_action :authenticate_user!
+  before_action :author?, only: [:edit, :destroy]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -55,6 +56,15 @@ class PostController < ApplicationController
     @post = Post.find(params[:id])
     @post.likes.where(author: current_user.username).take.delete
     redirect_to post_path(@post)
+  end
+
+  private
+
+  def author?
+    post = Post.find(params[:id])
+    if not post.author == current_user
+      redirect_to post_path(post)
+    end
   end
 
 end
