@@ -1,16 +1,25 @@
-
 <div class="row">
 	<div class="border col-xs-3">
 		<br><br><br><br><br>
-		<center class="hint">Your Photo here</center>
+		<center class="hint">Photo here</center>
 		<br><br><br><br><br><br>
 	</div>
-	<div class="border col-xs-8">
-		<h3><b><%= current_user.username %></b></h3><hr>
-		<p><b>Amount of posts: </b><%= current_user.amount_of_posts %></p>
-		<p><b>Sign in count: </b><%= current_user.sign_in_count %></p>
-		<p><b>Current sign in at:</b> <%= current_user.current_sign_in_at %></p>
-		<p><b>Current sign in ip: </b><%= current_user.current_sign_in_ip %></p>
-		<p><b>Registered at: </b><%= current_user.created_at %></p>
+	<div class="col-xs-8">	
+		<div class="border">
+			<h3><b><%= current_user.username %></b></h3><hr>
+			<p><b>Amount of posts: </b><%= current_user.amount_of_posts %></p>
+			<p><b>Sign in count: </b><%= current_user.sign_in_count %></p>
+			<p><b>Current sign in at:</b> <%= current_user.current_sign_in_at %></p>
+			<p><b>Current sign in ip: </b><%= current_user.current_sign_in_ip %></p>
+			<p><b>Registered at: </b><%= current_user.created_at %></p>
+		</div>
+		<br>
+		<div class="border">
+			<hr>
+			<%@posts.each do |post|%>
+					<h4><%= link_to "#{post.title}", post_path(post)%></h4>
+					<b>Posted by:</b> <%= post.author %><hr>
+			<%end%>
+		</div>
 	</div>
 </div>

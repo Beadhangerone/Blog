@@ -1,1 +1,23 @@
-showing <%=@account.username%> account
+
+<div class="row">
+	<div class="border col-xs-3">
+		<br><br><br><br><br>
+		<center class="hint">Photo here</center>
+		<br><br><br><br><br><br>
+	</div>
+	<div class="col-xs-8">	
+		<div class="border">
+			<h3><b><%= @user.username %></b></h3><hr>
+			<p><b>Amount of posts: </b><%= @user.amount_of_posts %></p>
+			<p><b>Registered at: </b><%= @user.created_at %></p>
+		</div>
+		<br>
+		<div class="border">
+			<hr>
+			<%@posts.each do |post|%>
+					<h4><%= link_to "#{post.title}", post_path(post)%></h4>
+					<b>Posted by:</b> <%= post.author %><hr>
+			<%end%>
+		</div>
+	</div>
+</div>

@@ -4,5 +4,7 @@ class HomeController < ApplicationController
   end
 
   def my_profile
+    @user = current_user
+    @posts = Post.where(author: @user.username)
   end
 end
