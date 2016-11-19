@@ -1,15 +1,14 @@
 
 <div class="row">
-	<div class="col-xs-1"></div>
-	<div class="col-xs-5">
+	<div class="col-md-9 col-sm-9 col-xs-12">
 		<h2><%= @post.title %></h2>
 		<hr>
 		<p><%= @post.text %></p>
 		<hr>
 		<p>Posted by: <b><i><%= @post.author %></i></b> on <b><i><%= @post.created_at %></i></b></p>
 	</div>
-	<div class="col-xs-2">
-			<br><br><br><br>
+	<div class="col-md-3 col-sm-3 col-xs-8">
+			<div class="hidden-xs"><br><br><br><br></div>
 			<div class="list-group">
 				<% if @post.author == current_user.username %>
 					<%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete".html_safe, post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
@@ -23,13 +22,12 @@
 					<%end%>
 				<%end%>
 			</div>
-		<br>
-		<%=link_to "#{@post.likes.length}", '#', toggle:'tooltip', title: @likes.join(', ') %> people like it
+			<%=link_to "#{@post.likes.length}", '#', toggle:'tooltip', title: @likes.join(', ') %> people like it
 	</div>
 </div>
 
 <br><div class="row"><hr>
-	<div class="col-xs-9">
+	<div class="col-md-9">
 		<%= form_tag (post_comment_index_path(@post)) do %>
 			<%= label_tag :comment%> <span class='glyphicon glyphicon-comment'></span>
 			<%= text_area_tag :comment, nil, class: 'form-control' %>
@@ -42,7 +40,7 @@
 </div>
 
 <div class="row"><hr>
-	<div class="col-xs-9">
+	<div class="col-md-9">
 		<%if @post.comments.length != 0%>
 
 			<%@post.comments.reverse.each do |comment|%>
@@ -51,11 +49,11 @@
 
 					<div class="row">
 
-						<div class="col-xs-10">
+						<div class="col-md-10">
 							<p><%= comment.comment %></p>
 						</div>
 
-						<div class="col-xs-2">
+						<div class="col-md-2">
 							<small><p class='hint'><%= comment.created_at %></p></small>
 						</div>
 					</div>
