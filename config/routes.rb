@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/post/:id/like' =>"post#like", :as => 'like_post'
   delete '/post/:id/unlike' =>"post#unlike", :as => 'unlike_post'
   post '/user/:id/friend-up' =>"user#friend_up", :as => 'friend_up'
+  delete '/user/:id/unfollow' =>"user#unfollow", :as => 'unfollow'
 
   resources :user, :except => [:new, :create, :index]
 
