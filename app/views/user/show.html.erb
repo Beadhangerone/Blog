@@ -7,13 +7,16 @@
 			<br><br><br><br><br><br>
 		</div>
 		<br>
+		<%if @user != current_user%>
 			<div class="list-group">
 				<%=link_to "<span class='glyphicon glyphicon-plus'></span> Friend up".html_safe, friend_up_path(@user), method: "post", class: "list-group-item"%>
 			</div>
+		<%end%>
 
 		<div class="border">
-			<% @friends.each do |friend| %>
-				<%=friend.username%> <br>
+			<h4>followers</h4><hr>
+			<% @user.friends.each do |friend| %>
+				<%=User.find(friend.follower).username%> <br>
 			<%end%>
 		</div>
 	</div>
@@ -29,7 +32,7 @@
 			<hr>
 			<%@posts.each do |post|%>
 					<h4><%= link_to "#{post.title}", post_path(post)%></h4>
-					<b>Posted by:</b> <%= post.author %><hr>
+					<b>Posted by:</b> <%= User.find(post.author).username %><hr>
 			<%end%>
 		</div>
 	</div>

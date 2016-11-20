@@ -8,8 +8,9 @@
 		<br>
 
 		<div class="border">
-			<% @friends.each do |friend| %>
-				<%=friend.username%> <br>
+			<h4>followers</h4><hr>
+			<% @user.friends.each do |friend| %>
+				<%=User.find(friend.follower).username%> <br>
 			<%end%>
 		</div>
 	</div>
@@ -28,7 +29,7 @@
 			<hr>
 			<%@posts.each do |post|%>
 					<h4><%= link_to "#{post.title}", post_path(post)%></h4>
-					<b>Posted by:</b> <%= post.author %><hr>
+					<b>Posted by:</b> <%= User.find(post.author).username %><hr>
 			<%end%>
 		</div>
 	</div>
