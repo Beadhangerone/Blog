@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
   def my_profile
     @user = current_user
-    @posts = Post.where(author: @user.username).order(created_at: :desc)
+    @posts = Post.where(author: @user.id).order(created_at: :desc)
     @friends = []
     if @user.friends_id != nil
       @user.friends_id.split(", ").each do |friend_id|

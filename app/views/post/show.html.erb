@@ -5,24 +5,24 @@
 		<hr>
 		<p><%= @post.text %></p>
 		<hr>
-		<p>Posted by: <b><i><%=link_to @post.author, user_path(@post.author) %></i></b> on <b><i><%= @post.created_at %></i></b></p>
+		<p>Posted by: <b><i><%=link_to @author.username, user_path(@author.id) %></i></b> on <b><i><%= @post.created_at %></i></b></p>
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
 			<div class="hidden-xs"><br><br><br><br></div>
 			<div class="list-group">
-				<% if @post.author == current_user.username %>
+				<% if @author.id == current_user.id %>
 					<%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete".html_safe, post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
 					<%= link_to "<span class='glyphicon glyphicon-pencil'></span> Edit".html_safe, edit_post_path(@post), class: "list-group-item"%>
 					
 				<%else%>
-					<% if @likes.include?(current_user.username) %>
+					<% if @likers.include?(current_user.username) %>
 						<%= link_to "<span class='glyphicon glyphicon-thumbs-down'></span> Unlike".html_safe, unlike_post_path(@post), method: "delete", class: "list-group-item" %>
 					<% else %>
 						<%= link_to "<span class='glyphicon glyphicon-thumbs-up'></span> Like this post".html_safe, like_post_path(@post), method: "post", class: "list-group-item" %>
 					<%end%>
 				<%end%>
 			</div>
-			<%=link_to "#{@post.likes.length}", '#', toggle:'tooltip', title: @likes.join(', ') %> people like it
+			<%=link_to "#{@post.likes.length}", '#', toggle:'tooltip', title: @likers.join(', ') %> people like it
 	</div>
 </div>
 
@@ -41,7 +41,7 @@
 
 <div class="row"><hr>
 	<div class="col-md-9">
-		<%if @post.comments.length != 0%>
+		<%if @post.comments.length > 0%>
 
 			<%@post.comments.reverse.each do |comment|%>
 				<div class="border">

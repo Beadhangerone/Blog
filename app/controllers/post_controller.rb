@@ -14,7 +14,7 @@ class PostController < ApplicationController
   def create
     $post.title = params[:post][:title]
     $post.text = params[:post][:text]
-    $post.author = current_user.username
+    $post.author = current_user.id
     $post.save
     current_user.amount_of_posts += 1
     current_user.save
@@ -24,15 +24,15 @@ class PostController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @likes = []
+    @author = User.find(@post.author)
+    @likers = []
     @post.likes.each do |like|
-      @likes << like.author
+      @likers << like.author
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    Post.find(params[:id]).destroy
     current_user.amount_of_posts -= 1
     current_user.save
 
@@ -59,7 +59,7 @@ class PostController < ApplicationController
 
   def unlike
     @post = Post.find(params[:id])
-    @post.likes.where(author: current_user.username).take.delete
+    @post.likes.where(author: current_user).take.delete
     redirect_to post_path(@post)
   end
 
