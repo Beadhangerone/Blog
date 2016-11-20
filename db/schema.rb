@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115200353) do
+ActiveRecord::Schema.define(version: 20161120115357) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20161115200353) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "follower"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower"], name: "index_friends_on_follower"
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -39,7 +48,6 @@ ActiveRecord::Schema.define(version: 20161115200353) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "friends_id"
     t.integer  "amount_of_posts",        default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -54,7 +62,6 @@ ActiveRecord::Schema.define(version: 20161115200353) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["friends_id"], name: "index_users_on_friends_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
