@@ -2,6 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       t.string :username
+      t.string :friends_id
       t.integer :amount_of_posts, default: 0
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -36,6 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.timestamps null: false
     end
 
+    add_index :users, :friends_id
     add_index :users, :username,             unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
