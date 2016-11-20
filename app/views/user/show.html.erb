@@ -7,6 +7,9 @@
 			<br><br><br><br><br><br>
 		</div>
 		<br>
+			<div class="list-group">
+				<%=link_to "<span class='glyphicon glyphicon-plus'></span> Friend up".html_safe, friend_up_path(@user), method: "post", class: "list-group-item"%>
+			</div>
 
 		<div class="border">
 			<% @friends.each do |friend| %>

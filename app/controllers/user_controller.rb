@@ -12,8 +12,15 @@ class UserController < ApplicationController
     end
   end
 
-  def make_friend
-    @user = User.where(username: params[:id]).take
+  def friend_up
+    @user = User.find(params[:id])
+    if current_user.friends_id !=nil
+      current_user.friends_id +=", #{@user.id}"
+      current_user.save
+    else
+      current_user.friends_id = current_user.id
+      current_user.save
+    end
   end
 
 end
