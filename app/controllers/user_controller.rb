@@ -4,7 +4,7 @@ class UserController < ApplicationController
 
   def show
     @user = User.where(id: params[:id]).take
-    @posts = Post.where(author: @user.id).order(created_at: :desc)
+    @posts = Post.where(author_id: @user.id).order(created_at: :desc)
     @followers = []
     @user.friends.each do |friend|
       @followers << User.find(friend.follower)
