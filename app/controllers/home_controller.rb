@@ -5,6 +5,6 @@ class HomeController < ApplicationController
 
   def my_profile
     @user = current_user
-    @posts = Post.where(author: @user.id).order(created_at: :desc)
+    @posts = Post.where(author_id: @user.id).order(created_at: :desc)
   end
 end

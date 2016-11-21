@@ -14,20 +14,23 @@ class PostController < ApplicationController
   def create
     $post.title = params[:post][:title]
     $post.text = params[:post][:text]
-    $post.author = current_user.id
-    $post.save
-    current_user.amount_of_posts += 1
-    current_user.save
+    $post.author_id = current_user.id
+    if $post.save 
 
-    redirect_to post_path($post)
+      current_user.amount_of_posts += 1
+      current_user.save
+
+      flash[:notice] = "Posted successfully."
+      redirect_to post_path($post)
+    end
   end
 
   def show
     @post = Post.find(params[:id])
-    @author = User.find(@post.author)
+    @author = User.find(@post.author_id)
     @likers = []
     @post.likes.each do |like|
-      @likers << like.author
+      @likers << User.find(like.author_id).username
     end
   end
 
@@ -46,28 +49,29 @@ class PostController < ApplicationController
   def update
     $post.title = params[:post][:title]
     $post.text = params[:post][:text]
-    $post.save
-
-    redirect_to post_path($post)
+    if $post.save
+      flash[:notice] = "Edited successfully."
+      redirect_to post_path($post)
+    end
   end
 
   def like
-    @post = Post.find(params[:id])
-    @post.likes.create(author: current_user.username)
-    redirect_to post_path(@post)
+    post = Post.find(params[:id])
+    post.likes.create(author_id: current_user.id)
+    redirect_to post_path(post)
   end
 
   def unlike
-    @post = Post.find(params[:id])
-    @post.likes.where(author: current_user).take.delete
-    redirect_to post_path(@post)
+    post = Post.find(params[:id])
+    post.likes.where(author_id: current_user.id).take.delete
+    redirect_to post_path(post)
   end
 
   private
 
   def author?
     post = Post.find(params[:id])
-    if post.author != current_user.username
+    if post.author_id != current_user.id
       redirect_to post_path(post)
     end
   end
