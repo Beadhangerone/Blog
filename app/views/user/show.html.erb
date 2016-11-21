@@ -10,11 +10,11 @@
 		<%if @user != current_user%>
 			<%if @followers.include?(current_user)%>
 				<div class="list-group">
-					<%=link_to "<span class='glyphicon glyphicon-minus'></span> Unfollow".html_safe, unfollow_path(@user), method: "delete", class: "list-group-item"%>
+					<a class="list-group-item" rel="nofollow" data-method="delete"               href="<%=unfollow_path(@user)%>"><span class="glyphicon glyphicon-minus"></span> Unfollow</a>
 				</div>
 			<%else%>
 				<div class="list-group">
-					<%=link_to "<span class='glyphicon glyphicon-plus'></span> Follow".html_safe, friend_up_path(@user), method: "post", class: "list-group-item"%>
+					<a class="list-group-item" rel="nofollow" data-method="post"                 href="<%=friend_up_path(@user)%>"><span class="glyphicon glyphicon-plus"></span> Follow</a>
 				</div>
 			<%end%>
 		<%end%>
@@ -36,8 +36,8 @@
 		<br>
 		<div class="border">
 			<hr>
-			<%@posts.each do |post|%>
-					<h4><%= link_to "#{post.title}", post_path(post)%></h4>
+			<%@posts.each do |post|%>					
+					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
 					<b>Posted by:</b> <%= User.find(post.author_id).username %><hr>
 			<%end%>
 		</div>

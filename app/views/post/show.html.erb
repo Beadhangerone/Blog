@@ -5,24 +5,29 @@
 		<hr>
 		<p><%= @post.text %></p>
 		<hr>
-		<p>Posted by: <b><i><%=link_to @author.username, user_path(@author.id) %></i></b> on <b><i><%= @post.created_at %></i></b></p>
+		<p>Posted by: <b><i><a href="<%=user_path(@author.id)%>"><%=@author.username%></a></i></b> on <b><i><%= @post.created_at %></i></b></p>
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
 			<div class="hidden-xs"><br><br><br><br></div>
 			<div class="list-group">
 				<% if @author.id == current_user.id %>
-					<%= link_to "<span class='glyphicon glyphicon-trash'></span> Delete".html_safe, post_path(@post), method: "delete", class: "list-group-item", data: {confirm: "Are you shure?"} %>
-					<%= link_to "<span class='glyphicon glyphicon-pencil'></span> Edit".html_safe, edit_post_path(@post), class: "list-group-item"%>
+					<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path(@post)%>" data-confirm="Are you sure ?"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+
+					<a class="list-group-item" href="<%=edit_post_path(@post)%>"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
 					
 				<%else%>
 					<% if @likers.include?(current_user.username) %>
-						<%= link_to "<span class='glyphicon glyphicon-thumbs-down'></span> Unlike".html_safe, unlike_post_path(@post), method: "delete", class: "list-group-item" %>
+						<a class="list-group-item" rel="nofollow" data-method="delete" 
+						href="<%=unlike_post_path(@post)%>"><span class="glyphicon glyphicon-thumbs-down"></span> Unlike</a>
+
 					<% else %>
-						<%= link_to "<span class='glyphicon glyphicon-thumbs-up'></span> Like this post".html_safe, like_post_path(@post), method: "post", class: "list-group-item" %>
+						<a class="list-group-item" rel="nofollow" data-method="post" 
+						href="<%=like_post_path(@post)%>"><span class="glyphicon glyphicon-thumbs-up"></span> Like this post</a>
 					<%end%>
 				<%end%>
 			</div>
-			<%=link_to "#{@post.likes.length}", '#', toggle:'tooltip', title: @likers.join(', ') %> people like it
+			<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer"><%=@post.likes.length%></a> 
+			people like it
 	</div>
 </div>
 

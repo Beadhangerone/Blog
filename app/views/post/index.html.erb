@@ -3,7 +3,7 @@
 <% @posts.each do |post| %>
 	<div class="row">
 		<div class="col-xs-offset-1 col-xs-11">
-			<h4><%= link_to "#{post.title}", post_path(post)%></h4>
+			<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
 			<b>Posted by:</b> <%= User.find(post.author_id).username %>
 		</div>
 	</div>

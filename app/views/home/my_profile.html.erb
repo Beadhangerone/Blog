@@ -27,8 +27,8 @@
 		<br>
 		<div class="border">
 			<hr>
-			<%@posts.each do |post|%>
-					<h4><%= link_to "#{post.title}", post_path(post)%></h4>
+			<%@posts.each do |post|%>					
+					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
 					<b>Posted by:</b> <%= User.find(post.author_id).username %><hr>
 			<%end%>
 		</div>
