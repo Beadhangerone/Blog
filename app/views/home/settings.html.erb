@@ -1,0 +1,7 @@
+<h1> Settings </h1>
+<br>
+<h3> Upload a avatar </h3>
+<%= form_for @avatar do |f| %>
+	<%= f.file_field :avatar%>
+	<%= f.submit 'Submit', class: 'btn btn-default' %>
+<% end %>

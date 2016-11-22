@@ -46,7 +46,7 @@
                   <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-user'></span> <%=current_user.username%> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="<%=profile_path%>"><span class='glyphicon glyphicon-file'></span> Your profile</a></li>
-                    <li><a href="#"><span class='glyphicon glyphicon-cog'></span> Settings</a></li>
+                    <li><a href="/settings"><span class='glyphicon glyphicon-cog'></span> Settings</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li role="separator" class="divider"></li>
                     <li><%= link_to "<span class='glyphicon glyphicon-log-out'></span> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>

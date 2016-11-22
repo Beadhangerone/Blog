@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/profile' => 'home#my_profile'
+  get '/settings' => 'home#settings', :as => 'settings'
+  post '/avatar_create' => 'avatar#create', :as => 'avatars'
   post '/post/:id/like' =>"post#like", :as => 'like_post'
   delete '/post/:id/unlike' =>"post#unlike", :as => 'unlike_post'
   post '/user/:id/friend-up' =>"user#friend_up", :as => 'friend_up'
