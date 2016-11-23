@@ -4,7 +4,7 @@ class AvatarController < ApplicationController
     @avatar.user_id = current_user.id
     if @avatar.save
       flash[notice] = "Photo saved!"
-      redirect_to settings_path
+      redirect_to profile_path
     else
       render 'new'
     end

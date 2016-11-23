@@ -17,6 +17,4 @@ class HomeController < ApplicationController
     @avatar = Avatar.new
   end
 
-  def settings_save 
-  end
 end
