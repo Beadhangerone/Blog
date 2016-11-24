@@ -1,6 +1,5 @@
 <div class="row">
 	<div class="col-xs-3">
-		<div class="border">
 			<%if @avatar%>
 				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
 				@avatar.image.url, target: '_blank'%>
@@ -9,8 +8,7 @@
 				<center class="hint">Your photo here</center>
 				<br><br><br><br>
 			<%end%>
-		</div>
-		<br>
+		<hr>
 
 		<div class="border">
 			<h4>Your followers:</h4><hr>

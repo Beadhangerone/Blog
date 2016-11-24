@@ -1,6 +1,10 @@
 class AvatarController < ApplicationController
   def create
-    @avatar=Avatar.new
+    if current_user.avatar
+      @avatar = current_user.avatar
+    else
+      @avatar=Avatar.new
+    end
     @avatar.image = params[:avatar][:image]
     @avatar.user_id = current_user.id
     if @avatar.save

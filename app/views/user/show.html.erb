@@ -1,17 +1,17 @@
 
 <div class="row">
 	<div class="col-xs-3">
-		<div class="border">
 			<%if @avatar%>
 				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
 				@avatar.image.url, target: '_blank'%>
 			<%else%>
-				<br><br><br><br>
-				<center class="hint">Photo here</center>
-				<br><br><br><br>
+				<div class="border">
+					<br><br><br><br>
+					<center class="hint">Photo here</center>
+					<br><br><br><br>
+				</div>
 			<%end%>
-		</div>
-		<br>
+		<hr>
 		<%if @user != current_user%>
 			<%if @followers.include?(current_user)%>
 				<div class="list-group">
