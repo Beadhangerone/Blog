@@ -46,16 +46,16 @@
 
 <div class="row"><hr>
 	<div class="col-md-9">
-		<%if @post.comments.length > 0%>
+		<%if @comments.length > 0%>
 
-			<%@post.comments.reverse.each do |comment|%>
+			<%@comments.each do |comment|%>
 				<div class="border">
-					<p><b><%= comment.author %></b> said:</p>
+					<p><b><%= User.find(comment.author_id).username %></b> said:</p>
 
 					<div class="row">
 
 						<div class="col-md-10">
-							<p><%= comment.comment %></p>
+							<p><%= comment.text %></p>
 						</div>
 
 						<div class="col-md-2">

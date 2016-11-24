@@ -8,26 +8,28 @@ class PostController < ApplicationController
   end
 
   def new
-    $post=Post.new
+    @post=Post.new
   end
 
   def create
-    $post.title = params[:post][:title]
-    $post.text = params[:post][:text]
-    $post.author_id = current_user.id
-    if $post.save 
+    post = Post.new
+    post.title = params[:post][:title]
+    post.text = params[:post][:text]
+    post.author_id = current_user.id
+    if post.save 
 
       current_user.amount_of_posts += 1
       current_user.save
 
       flash[:notice] = "Posted successfully."
-      redirect_to post_path($post)
+      redirect_to post_path(post)
     end
   end
 
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.author_id)
+    @comments = @post.comments.reverse
     @likers = []
     @post.likes.each do |like|
       @likers << User.find(like.author_id).username

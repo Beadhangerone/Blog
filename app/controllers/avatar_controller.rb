@@ -15,10 +15,5 @@ class AvatarController < ApplicationController
     end
   end
 
-  private
-
-  def avatar_params
-    params.require(:avatar).permit(:image)
-  end
 
 end
