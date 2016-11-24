@@ -1,6 +1,7 @@
 class AvatarController < ApplicationController
   def create
-    @avatar=Avatar.new(avatar_params)
+    @avatar=Avatar.new
+    @avatar.image = params[:avatar][:image]
     @avatar.user_id = current_user.id
     if @avatar.save
       flash[notice] = "Photo saved!"
@@ -13,7 +14,7 @@ class AvatarController < ApplicationController
   private
 
   def avatar_params
-    params.require(:avatar).permit(:avatar)
+    params.require(:avatar).permit(:image)
   end
 
 end

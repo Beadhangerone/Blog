@@ -4,6 +4,7 @@ class UserController < ApplicationController
 
   def show
     @user = User.where(id: params[:id]).take
+    @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
     @followers = []
     @user.followers.each do |follower|

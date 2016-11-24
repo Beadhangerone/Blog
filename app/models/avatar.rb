@@ -1,4 +1,4 @@
 class Avatar < ApplicationRecord
   belongs_to :user
-  dragonfly_accessor :avatar
+  dragonfly_accessor :image
 end

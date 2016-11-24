@@ -2,6 +2,6 @@
 <br>
 <h3> Upload a avatar </h3>
 <%= form_for @avatar, url: avatar_create_path do |f| %>
-	<%= f.file_field :avatar%><br>
+	<%= f.file_field :image%><br>
 	<%= f.submit 'Submit', class: 'btn btn-default' %>
 <% end %>

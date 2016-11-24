@@ -2,9 +2,14 @@
 <div class="row">
 	<div class="col-xs-3">
 		<div class="border">
-			<br><br><br><br><br>
-			<center class="hint">Photo here</center>
-			<br><br><br><br><br><br>
+			<%if @avatar%>
+				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
+				@avatar.image.url, target: '_blank'%>
+			<%else%>
+				<br><br><br><br>
+				<center class="hint">Photo here</center>
+				<br><br><br><br>
+			<%end%>
 		</div>
 		<br>
 		<%if @user != current_user%>
