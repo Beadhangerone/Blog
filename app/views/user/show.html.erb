@@ -15,11 +15,11 @@
 		<%if @user != current_user%>
 			<%if @followers.include?(current_user)%>
 				<div class="list-group">
-					<a class="list-group-item" rel="nofollow" data-method="delete"               href="<%=unfollow_path(@user)%>"><span class="glyphicon glyphicon-minus"></span> Unfollow</a>
+					<a class="list-group-item" rel="nofollow" data-method="delete"               href="<%=unfollow_path(@user)%>"><%=icon("minus")%> Unfollow</a>
 				</div>
 			<%else%>
 				<div class="list-group">
-					<a class="list-group-item" rel="nofollow" data-method="post"                 href="<%=friend_up_path(@user)%>"><span class="glyphicon glyphicon-plus"></span> Follow</a>
+					<a class="list-group-item" rel="nofollow" data-method="post"                 href="<%=friend_up_path(@user)%>"><%=icon("plus")%> Follow</a>
 				</div>
 			<%end%>
 		<%end%>

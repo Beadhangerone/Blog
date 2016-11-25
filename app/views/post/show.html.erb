@@ -10,39 +10,43 @@
 		</p>
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
-			<div class="hidden-xs"><br><br><br><br></div>
-			<div class="list-group">
-				<% if @author.id == current_user.id %>
-					<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path(@post)%>" data-confirm="Are you sure ?"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+		<div class="hidden-xs"><br><br><br><br></div>
+		<div class="list-group">
+			<% if @author.id == current_user.id %>
+				<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path(@post)%>" data-confirm="Are you sure ?">
+				<%=icon("trash")%> Delete
+				</a>
 
-					<a class="list-group-item" href="<%=edit_post_path(@post)%>"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-					
-				<%else%>
-					<% if @likers.include?(current_user) %>
-						<a class="list-group-item" rel="nofollow" data-method="delete" 
-						href="<%=unlike_post_path(@post)%>"><span class="glyphicon glyphicon-thumbs-down"></span> Unlike</a>
+				<a class="list-group-item" href="<%=edit_post_path(@post)%>">
+					<%=icon("pencil")%> Edit
+				</a>
+				
+			<%else%>
+				<% if @likers.include?(current_user.username) %>
+					<a class="list-group-item" rel="nofollow" data-method="delete" 
+					href="<%=unlike_post_path(@post)%>"><%=icon("thumbs-down")%> Unlike</a>
 
-					<% else %>
-						<a class="list-group-item" rel="nofollow" data-method="post" 
-						href="<%=like_post_path(@post)%>"><span class="glyphicon glyphicon-thumbs-up"></span> Like this post</a>
-					<%end%>
+				<% else %>
+					<a class="list-group-item" rel="nofollow" data-method="post" 
+					href="<%=like_post_path(@post)%>"> <%=icon("thumbs-up")%> Like this post</a>
 				<%end%>
-			</div>
-			<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
-				<%=@likers.length%>
-			</a> 
-			people like it
+			<%end%>
+		</div>
+		<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
+			<%=@likers.length%>
+		</a> 
+		people like it
 	</div>
 </div>
 
 <br><div class="row"><hr>
 	<div class="col-md-9">
 		<%= form_tag (post_comment_index_path(@post)) do %>
-			<%= label_tag :comment%> <span class='glyphicon glyphicon-comment'></span>
+			<%= label_tag :comment%><%=icon("comment")%>
 			<%= text_area_tag :comment, nil, class: 'form-control' %>
 			<br>
 			<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
-				<span class='glyphicon glyphicon-ok'></span> Add a comment
+				<%=icon("ok")%> Add a comment
 			<%end%>
 		<% end %>
 	</div>
@@ -54,16 +58,16 @@
 
 			<%@comments.each do |comment|%>
 				<div class="border">
-					<p><b><%= link_to_user (user_by_id(comment.author_id)) %></b> said:</p>
+					<p><b><%= link_to_user(user_by_id(comment.author_id))%></b> said:</p>
 
 					<div class="row">
 
 						<div class="col-md-10">
-							<p><%= comment.text %></p>
+							<p><%=comment.text%></p>
 						</div>
 
 						<div class="col-md-2">
-							<small><p class='hint'><%= comment.created_at %></p></small>
+							<small><p class='hint'><%=comment.created_at%></p></small>
 						</div>
 					</div>
 				</div>	

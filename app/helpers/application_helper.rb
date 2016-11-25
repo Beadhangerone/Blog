@@ -8,4 +8,8 @@ module ApplicationHelper
     User.find(id)
   end
 
+  def icon (name)
+    render html:"<span class='glyphicon glyphicon-#{name}'></span>".html_safe
+  end
+
 end
