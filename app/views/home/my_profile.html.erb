@@ -14,14 +14,14 @@
 			<div class="border">
 				<h4>Your followers:</h4><hr>
 				<% @followers.each do |follower| %>
-					<%=follower.username%> <br>
+					<%= link_to_user (follower) %>
 				<%end%>
 			</div><hr>
 
 			<div class="border">
 				<h4>Your followings:</h4><hr>
 				<% @followings.each do |following| %>
-					<%=following.username%> <br>
+					<%= link_to_user (following) %>
 				<%end%>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 	
 	<div class="col-xs-8">	
 		<div class="border">
-			<h3><b><%= current_user.username %> id: <%= @a %></b></h3><hr>
+			<h3><b><%= current_user.username %></b></h3><hr>
 			<p><b>Amount of posts: </b><%= current_user.amount_of_posts %></p>
 			<p><b>Sign in count: </b><%= current_user.sign_in_count %></p>
 			<p><b>Current sign in at:</b> <%= current_user.current_sign_in_at %></p>
@@ -41,7 +41,7 @@
 			<hr>
 			<%@posts.each do |post|%>					
 					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
-					<b>Posted by:</b> <%= User.find(post.author_id).username %><hr>
+					<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
 			<%end%>
 		</div>
 	</div>

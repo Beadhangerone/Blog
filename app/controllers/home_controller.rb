@@ -9,13 +9,13 @@ class HomeController < ApplicationController
 
     @followers = []
     @user.followers.each do |follower|
-      @followers << User.find(follower.follower_id)
+      @followers << user_by_id(follower.follower_id)
     end
 
     @followings = []
     @a = current_user.id
-     Follower.where(follower_id: current_user.id).find_each do |following|
-       @followings << User.find(following.follower_id)
+     Follower.where(user_id: current_user.id).find_each do |following|
+       @followings << user_by_id(following.follower_id)
      end
 
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)

@@ -28,11 +28,11 @@ class PostController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @author = User.find(@post.author_id)
+    @author = user_by_id(@post.author_id)
     @comments = @post.comments.reverse
     @likers = []
     @post.likes.each do |like|
-      @likers << User.find(like.author_id).username
+      @likers << user_by_id(like.author_id).username
     end
   end
 

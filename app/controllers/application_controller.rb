@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   layout "application"
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
