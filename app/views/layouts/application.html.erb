@@ -35,24 +35,43 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><%= link_to "<span class='glyphicon glyphicon-list-alt'></span> Show all posts".html_safe, post_index_path %></li>
-                <li><%= link_to "<span class='glyphicon glyphicon-pencil'></span> Write a new post".html_safe, new_post_path %></li>
-                <li><%= link_to "Photos", photos_path %></li>
+                <li>  
+                  <a href="<%=post_index_path%>">
+                    <span class='glyphicon glyphicon-list-alt'></span> Show all posts
+                  </a>
+                <li>
+                  <a href="<%=new_post_path%>">
+                    <span class='glyphicon glyphicon-pencil'></span> Write a new post
+                  </a>
+                <li>
+                    <a href="<%=photos_path%>">
+                    <span class='glyphicon glyphicon-picture'></span> Photos
+                  </a>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <%if user_signed_in?%>
 
-                <li class="dropdown">
-                  <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-user'></span> <%=current_user.username%> <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="<%=profile_path%>"><span class='glyphicon glyphicon-file'></span> Your profile</a></li>
-                    <li><a href="/settings"><span class='glyphicon glyphicon-cog'></span> Settings</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><%= link_to "<span class='glyphicon glyphicon-log-out'></span> Sign out".html_safe, destroy_user_session_path, method: :delete %></li>
-                  </ul>
-                </li>
-
+                  <li class="dropdown">
+                    <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class='glyphicon glyphicon-user'></span> <%=current_user.username%> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="<%=profile_path%>">
+                          <span class='glyphicon glyphicon-file'></span> Your profile
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/settings"><span class='glyphicon glyphicon-cog'></span> Settings</a>
+                      </li>
+                      <li>
+                        <a href="#">Something else here</a>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                        <a href="<%=destroy_user_session_path%>" data-method="delete"><span class='glyphicon glyphicon-log-out'></span> Sign out</a>
+                    </ul>
+                  </li>
                 <%else%>
                   <li>
                     <a href="<%=new_user_session_path%>">
