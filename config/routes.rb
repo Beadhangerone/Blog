@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/profile' => 'profile#show', as: 'profile'
   get '/profile/followers' => 'profile#followers', as: 'profile_followers'
+  get '/profile/followings' => 'profile#followings', as: 'profile_followings'
 
   resources :photos, only: [:new, :create, :index]
   resources :user, :except => [:new, :create, :index]

@@ -12,15 +12,23 @@
 
 		<div class="border">
 			<div class="border">
-				<h4>Your followers:</h4><hr>
-				<% @followers.each do |follower| %>
+				<h4>Your followers:
+					<a href="<%=profile_followers_path%>">
+						<span class="badge"><%=$followers.length%></span>
+					</a>
+				</h4><hr>
+				<% $followers.each do |follower| %>
 					<%= link_to_user (follower) %><br>
 				<%end%>
 			</div><hr>
 
 			<div class="border">
-				<h4>Your followings:</h4><hr>
-				<% @followings.each do |following| %>
+				<h4>Your followings:
+					<a href="<%=profile_followings_path%>">
+						<span class="badge"><%=$followings.length%></span>
+					</a>
+				</h4><hr>
+				<% $followings.each do |following| %>
 					<%= link_to_user (following) %>
 				<%end%>
 			</div>
