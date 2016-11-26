@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="col-xs-3">
+	<div class="col-md-3 col-sm-4 col-xs-5">
 			<%if @avatar%>
 				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
 				@avatar.image.url, target: '_blank'%>
@@ -24,22 +24,22 @@
 			<%end%>
 		<%end%>
 
-		<div class="border">
+		<div class="border content">
 			<h4>followers</h4><hr>
 			<% @followers.each do |follower| %>
-				<%=follower.username%> <br>
+				<%= link_to_user (follower) %><br>
 			<%end%>
 		</div>
 	</div>
 
-	<div class="col-xs-8">	
-		<div class="border">
+	<div class="col-md-8 col-sm-8 col-xs-7">
+		<div class="border content">
 			<h3><b><%= @user.username %></b></h3><hr>
 			<p><b>Amount of posts: </b><%= @user.amount_of_posts %></p>
 			<p><b>Registered at: </b><%= @user.created_at %></p>
 		</div>
 		<br>
-		<div class="border">
+		<div class="border content">
 			<hr>
 			<%@posts.each do |post|%>					
 					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
