@@ -42,7 +42,7 @@
 <br><div class="row"><hr>
 	<div class="col-md-9">
 		<%= form_tag (post_comment_index_path(@post)) do %>
-			<%= label_tag :comment%><%=icon("comment")%>
+			<%= label_tag :comment%> <%=icon("comment")%>
 			<%= text_area_tag :comment, nil, class: 'form-control' %>
 			<br>
 			<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
