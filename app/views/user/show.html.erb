@@ -7,7 +7,7 @@
 			<%else%>
 				<div class="border">
 					<br><br><br><br>
-					<center class="hint">Photo here</center>
+					<center class="hint">No photo</center>
 					<br><br><br><br>
 				</div>
 			<%end%>
@@ -39,12 +39,14 @@
 			<p><b>Registered at: <br></b><%= @user.created_at %></p>
 		</div>
 		<br>
-		<div class="border content">
-			<hr>
-			<%@posts.each do |post|%>					
-					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
-					<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
-			<%end%>
-		</div>
+		<%if @posts.length > 0%>
+			<div class="border content">
+				<hr>
+				<%@posts.each do |post|%>					
+						<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
+						<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
+				<%end%>
+			</div>
+		<%end%>
 	</div>
 </div>

@@ -4,9 +4,11 @@
 				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
 				@avatar.image.url, target: '_blank'%>
 			<%else%>
-				<br><br><br><br>
-				<center class="hint">Your photo here</center>
-				<br><br><br><br>
+				<div class="border">
+					<br><br><br><br>
+					<center class="hint">Your photo here</center>
+					<br><br><br><br>
+				</div>
 			<%end%>
 		<hr>
 
@@ -29,7 +31,7 @@
 					</a>
 				</h4><hr>
 				<% $followings.each do |following| %>
-					<%= link_to_user (following) %>
+					<%= link_to_user (following) %><br>
 				<%end%>
 			</div>
 		</div>
@@ -45,12 +47,14 @@
 			<p><b>Registered at:<br></b><%= current_user.created_at %></p>
 		</div>
 		<br>
-		<div class="border content">
-			<hr>
-			<%@posts.each do |post|%>					
+		<%if @posts.length > 0%>
+			<div class="border content">
+				<hr>
+				<%@posts.each do |post|%>					
 					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
 					<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
-			<%end%>
-		</div>
+				<%end%>
+			</div>
+		<%end%>
 	</div>
 </div>

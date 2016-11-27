@@ -10,8 +10,8 @@ class ProfileController < ApplicationController
     end
 
     $followings = []
-     Follower.where(user_id: current_user.id).find_each do |following|
-       $followings << user_by_id(following.follower_id)
+     Follower.where(follower_id: current_user.id).find_each do |following|
+       $followings << user_by_id(following.user_id)
      end
 
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
