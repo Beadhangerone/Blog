@@ -1,0 +1,18 @@
+<% $followers.each do |follower|%>
+	<div class="col-xs-3">
+		<%if follower.avatar%>
+			<%= link_to image_tag(follower.avatar.image.url, class: 'img-thumbnail'), 
+				user_path(follower)%>
+			<%=%>
+		<%else%>
+			<a href="<%=user_path(follower)%>">
+				<div class="border">
+						<br><br><br><br>
+						<center class="hint">No photo</center>
+						<br><br><br><br>
+				</div>
+			</a>
+		<%end%>
+		<b>Username: </b><%=link_to_user(follower)%><br>
+	</div>
+<%end%>

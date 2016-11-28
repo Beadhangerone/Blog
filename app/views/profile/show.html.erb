@@ -22,7 +22,6 @@
 			  </div>
 			  <div class="panel-body">
 					<%if $followers.length > 0%>
-						<hr>
 						<% $followers.each do |follower| %>
 							<%= link_to_user (follower) %><br>
 						<%end%>
@@ -34,14 +33,13 @@
 
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	<a href="<%=profile_followers_path%>">
+			  	<a href="<%=profile_followings_path%>">
 				    <span class="panel-title">Your followings </span>
 				    <span class="badge"><%=$followings.length%></span>
 				</a>
 			  </div>
 			  <div class="panel-body">
 					<%if $followings.length > 0%>
-						<hr>
 						<% $followings.each do |following| %>
 							<%= link_to_user (following) %><br>
 						<%end%>
