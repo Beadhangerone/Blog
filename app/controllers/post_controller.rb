@@ -3,6 +3,7 @@ class PostController < ApplicationController
   before_action :author?, only: [:edit, :destroy]
 
   def index
+    @header = "show all posts"
     @posts = Post.all.order(created_at: :desc)
   end
 
