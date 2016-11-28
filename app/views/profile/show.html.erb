@@ -13,26 +13,42 @@
 		<hr>
 
 		<div class="border">
-			<div class="border">
-				<h4>Your followers:
-					<a href="<%=profile_followers_path%>">
-						<span class="badge"><%=$followers.length%></span>
-					</a>
-				</h4><hr>
-				<% $followers.each do |follower| %>
-					<%= link_to_user (follower) %><br>
-				<%end%>
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<a href="<%=profile_followers_path%>">
+				    <span class="panel-title">Your followers </span>
+				    <span class="badge"><%=$followers.length%></span>
+				</a>
+			  </div>
+			  <div class="panel-body">
+					<%if $followers.length > 0%>
+						<hr>
+						<% $followers.each do |follower| %>
+							<%= link_to_user (follower) %><br>
+						<%end%>
+					<%else%>
+						<p class="hint">You haven't any followers</p>
+					<%end%>				
+				</div>
 			</div><hr>
 
-			<div class="border">
-				<h4>Your followings:
-					<a href="<%=profile_followings_path%>">
-						<span class="badge"><%=$followings.length%></span>
-					</a>
-				</h4><hr>
-				<% $followings.each do |following| %>
-					<%= link_to_user (following) %><br>
-				<%end%>
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<a href="<%=profile_followers_path%>">
+				    <span class="panel-title">Your followings </span>
+				    <span class="badge"><%=$followings.length%></span>
+				</a>
+			  </div>
+			  <div class="panel-body">
+					<%if $followings.length > 0%>
+						<hr>
+						<% $followings.each do |following| %>
+							<%= link_to_user (following) %><br>
+						<%end%>
+					<%else%>
+						<p class="hint">You haven't any followings</p>
+					<%end%>				
+				</div>
 			</div>
 		</div>
 	</div>
@@ -47,14 +63,23 @@
 			<p><b>Registered at:<br></b><%= current_user.created_at %></p>
 		</div>
 		<br>
-		<%if @posts.length > 0%>
-			<div class="border content">
-				<hr>
-				<%@posts.each do |post|%>					
-					<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
-					<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
-				<%end%>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <span class="panel-title">Your posts </span>
+		    <span class="badge"><%=@posts.length%></span>
+		  </div>
+		  <div class="panel-body">
+				<%if @posts.length > 0%>
+					<hr>
+					<%@posts.each do |post|%>					
+						<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
+						<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
+					<%end%>
+				<%else%>
+					<p class="hint">You haven't any posts</p>
+				<%end%>				
 			</div>
-		<%end%>
+		</div>
+			
 	</div>
 </div>

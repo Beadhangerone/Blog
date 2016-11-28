@@ -5,10 +5,16 @@ class UserController < ApplicationController
     @header = "#{@user.username}'s page"
     @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
+
     @followers = []
     @user.followers.each do |follower|
       @followers << user_by_id(follower.follower_id)
     end
+
+    @followings = []
+     Follower.where(follower_id: @user.id).find_each do |following|
+       @followings << user_by_id(following.user_id)
+     end
   end
 
   def friend_up
