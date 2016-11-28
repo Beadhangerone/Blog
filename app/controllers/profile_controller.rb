@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController
 
   def show
+    @header = "your profile"
     @user = current_user
     @avatar = @user.avatar
 
@@ -18,9 +19,11 @@ class ProfileController < ApplicationController
   end
 
   def followers
+    @header = "your followers"
   end
 
   def followings
+    @header = "your followings"
   end
 
 end

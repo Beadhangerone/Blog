@@ -2,6 +2,7 @@ class UserController < ApplicationController
 
   def show
     @user = user_by_id(params[:id])
+    @header = "#{@user.username}'s page"
     @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
     @followers = []

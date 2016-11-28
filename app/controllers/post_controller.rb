@@ -8,6 +8,7 @@ class PostController < ApplicationController
   end
 
   def new
+    @header = "write a new post"
     @post=Post.new
   end
 
@@ -28,6 +29,7 @@ class PostController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @header = @post.title
     @author = user_by_id(@post.author_id)
     @comments = @post.comments.reverse
     @likers = []
@@ -45,6 +47,7 @@ class PostController < ApplicationController
   end
 
   def edit
+    @header = "edit post"
     $post = Post.find(params[:id])
   end
 

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   end
 
   def settings
+    @header = "settings"
     @avatar = Avatar.new
   end
 
