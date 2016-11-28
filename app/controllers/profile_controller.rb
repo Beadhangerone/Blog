@@ -6,12 +6,12 @@ class ProfileController < ApplicationController
     @avatar = @user.avatar
 
     $followers = []
-    @user.followers.each do |follower|
+    Follower.where(user_id: @user.id).find_each do |follower|
       $followers << user_by_id(follower.follower_id)
     end
 
     $followings = []
-     Follower.where(follower_id: current_user.id).find_each do |following|
+     Follower.where(follower_id: @user.id).find_each do |following|
        $followings << user_by_id(following.user_id)
      end
 
