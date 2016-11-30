@@ -1,6 +1,8 @@
 
-<h3> Upload a avatar </h3>
-<%= form_for @avatar, url: avatar_create_path do |f| %>
-	<%= f.file_field :image%><br>
-	<%= f.submit 'Submit', class: 'btn btn-default' %>
-<% end %>
+<br>
+<div class="list-group">
+
+	<%= link_to "Edit your profile", edit_user_registration_path, class: "list-group-item" %>
+	<%= link_to "Upload a avatar", new_avatar_path, class: "list-group-item" %>
+
+</div>

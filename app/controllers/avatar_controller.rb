@@ -1,4 +1,10 @@
 class AvatarController < ApplicationController
+
+  def new
+    @header = "upload your photo"
+    @avatar = Avatar.new
+  end
+
   def create
     if current_user.avatar
       @avatar = current_user.avatar

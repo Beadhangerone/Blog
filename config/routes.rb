@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   post '/user/:id/friend-up' =>"user#friend_up", as: 'friend_up'
   delete '/user/:id/unfollow' =>"user#unfollow", as: 'unfollow'
   
-  get '/settings' => 'home#settings', as: 'settings'
-  post '/avatar_create' => 'avatar#create', as: 'avatar_create'
+
 
   get '/profile' => 'profile#show', as: 'profile'
   get '/profile/followers' => 'profile#followers', as: 'profile_followers'
@@ -17,6 +16,10 @@ Rails.application.routes.draw do
 
   get '/user/:id/followers' => 'user#followers', as: 'user_followers'
   get '/user/:id/followings' => 'user#followings', as: 'user_followings'
+
+  get '/settings' => 'home#settings', as: 'settings'
+  get '/settings/avatar' => 'avatar#new', as: 'new_avatar'
+  post '/settings/avatar/create' => 'avatar#create', as: 'avatar_create'
 
   resources :user, :except => [:new, :create, :index]
   resources :post do
