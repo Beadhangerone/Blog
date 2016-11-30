@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get '/user/:id/followers' => 'user#followers', as: 'user_followers'
   get '/user/:id/followings' => 'user#followings', as: 'user_followings'
 
-  resources :photos, only: [:new, :create, :index]
   resources :user, :except => [:new, :create, :index]
   resources :post do
     resources :comment, :except => [:show, :index, :new]
