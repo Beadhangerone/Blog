@@ -29,7 +29,7 @@
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="icon-bar"></span>
               </button>
-              <%= link_to "Main page", root_path, class: "navbar-brand" %>
+              <%= link_to "doodle blog", root_path, class: "hamurz navbar-brand"%>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,6 +51,10 @@
               <ul class="nav navbar-nav navbar-right">
                 <%if user_signed_in?%>
 
+                  <li>
+                    <%=link_to "Followers", profile_followers_path%>
+                  <li>  
+                    <%=link_to "Followings", profile_followings_path%>
                   <li class="dropdown">
                     <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <%=icon("user")%> <%=current_user.username%> <span class="caret"></span>
@@ -91,7 +95,7 @@
   <%if @header%>
     <div class="container">
       <div class="row">
-        <div class="header-block border hamurz main-color header-text  ">
+        <div class="header-block border hamurz main-color header-text">
           <%= @header %>
         </div>
       </div>
