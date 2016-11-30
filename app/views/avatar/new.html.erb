@@ -1,5 +1,8 @@
-
-<%= form_for @avatar, url: avatar_create_path do |f| %>
-	<%= f.file_field :image%><br>
-	<%= f.submit 'Submit', class: 'btn btn-default' %>
-<% end %>
+<div class="border">
+	<%= form_for @avatar, url: avatar_create_path do |f| %>
+		<%= f.file_field :image%><br>
+		<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
+	      <span class='glyphicon glyphicon-ok'></span> Upload
+	    <%end%>
+	<% end %>
+</div>
