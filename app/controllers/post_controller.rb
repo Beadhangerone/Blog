@@ -1,5 +1,6 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
+  before_action :post_by_params_id, except: [ :index, :new, :create, :update]
   before_action :author?, only: [:edit, :destroy]
 
   def index
@@ -28,18 +29,17 @@ class PostController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @header = @post.title
-    @author = user_by_id(@post.author_id)
-    @comments = @post.comments.reverse
+    @header = $post.title.downcase
+    @author = user_by_id($post.author_id)
+    @comments = $post.comments.reverse
     @likers = []
-    @post.likes.each do |like|
+    $post.likes.each do |like|
       @likers << user_by_id(like.author_id).username
     end
   end
 
   def destroy
-    Post.find(params[:id]).destroy
+    $post.destroy
     current_user.amount_of_posts -= 1
     current_user.save
 
@@ -48,7 +48,6 @@ class PostController < ApplicationController
 
   def edit
     @header = "edit post"
-    $post = Post.find(params[:id])
   end
 
   def update
@@ -61,24 +60,25 @@ class PostController < ApplicationController
   end
 
   def like
-    post = Post.find(params[:id])
-    post.likes.create(author_id: current_user.id)
-    redirect_to post_path(post)
+    $post.likes.create(author_id: current_user.id)
+    redirect_to post_path($post)
   end
 
   def unlike
-    post = Post.find(params[:id])
-    post.likes.where(author_id: current_user.id).take.delete
-    redirect_to post_path(post)
+    $post.likes.where(author_id: current_user.id).take.delete
+    redirect_to post_path($post)
   end
 
   private
 
   def author?
-    post = Post.find(params[:id])
-    if post.author_id != current_user.id
-      redirect_to post_path(post)
+    if $post.author_id != current_user.id
+      redirect_to post_path($post)
     end
+  end
+
+  def post_by_params_id
+    $post = Post.find(params[:id])
   end
 
 end

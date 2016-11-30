@@ -4,18 +4,18 @@ class UserController < ApplicationController
   before_action :get_follow_info, except: [:friend_up, :unfollow]
 
   def show
-    @header = "#{@user.username}'s page"
+    @header = "#{@user.username.downcase}'s page"
     @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
 
   end
 
   def followers
-    @header = "users followers"
+    @header = "#{@user.username.downcase}'s followers"
   end
 
   def followings
-    @header = "users followings"
+    @header = "#{@user.username.downcase}'s followings"
   end
 
   def friend_up

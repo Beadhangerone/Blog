@@ -1,34 +1,34 @@
 
 <div class="row">
 	<div class="col-md-9 col-sm-9 col-xs-12">
-		<h2><%= @post.title %></h2>
+		<h2><%= $post.title %></h2>
 		<hr>
-		<p><%= @post.text %></p>
+		<p><%= $post.text %></p>
 		<hr>
 		<p>
-		Posted by: <b><i><%=link_to_user(@author)%></i></b> on <b><i><%=@post.created_at%></i></b>
+		Posted by: <b><i><%=link_to_user(@author)%></i></b> on <b><i><%=$post.created_at%></i></b>
 		</p>
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
 		<div class="hidden-xs"><br><br><br><br></div>
 		<div class="list-group">
 			<% if @author.id == current_user.id %>
-				<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path(@post)%>" data-confirm="Are you sure ?">
+				<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path($post)%>" data-confirm="Are you sure ?">
 				<%=icon("trash")%> Delete
 				</a>
 
-				<a class="list-group-item" href="<%=edit_post_path(@post)%>">
+				<a class="list-group-item" href="<%=edit_post_path($post)%>">
 					<%=icon("pencil")%> Edit
 				</a>
 				
 			<%else%>
 				<% if @likers.include?(current_user.username) %>
 					<a class="list-group-item" rel="nofollow" data-method="delete" 
-					href="<%=unlike_post_path(@post)%>"><%=icon("thumbs-down")%> Unlike</a>
+					href="<%=unlike_post_path($post)%>"><%=icon("thumbs-down")%> Unlike</a>
 
 				<% else %>
 					<a class="list-group-item" rel="nofollow" data-method="post" 
-					href="<%=like_post_path(@post)%>"> <%=icon("thumbs-up")%> Like this post</a>
+					href="<%=like_post_path($post)%>"> <%=icon("thumbs-up")%> Like this post</a>
 				<%end%>
 			<%end%>
 		</div>
@@ -41,7 +41,7 @@
 
 <br><div class="row"><hr>
 	<div class="col-md-9">
-		<%= form_tag (post_comment_index_path(@post)) do %>
+		<%= form_tag (post_comment_index_path($post)) do %>
 			<%= label_tag :comment%> <%=icon("comment")%>
 			<%= text_area_tag :comment, nil, class: 'form-control' %>
 			<br>
