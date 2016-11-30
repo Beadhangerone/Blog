@@ -1,7 +1,8 @@
 class UserController < ApplicationController
 
+  before_action :user_by_params_id, except: [:followers, :followings]
+
   def show
-    @user = user_by_id(params[:id])
     @header = "#{@user.username}'s page"
     @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
@@ -18,22 +19,26 @@ class UserController < ApplicationController
   end
 
   def followers
-    @header = "user's followers"
+    @header = "users followers"
   end
 
   def followings
-    @header = "user's followings"
+    @header = "users followings"
   end
 
   def friend_up
-    @user = user_by_id(params[:id])
     @user.followers.create(follower_id: current_user.id)
     redirect_to (user_path(@user))
   end
 
   def unfollow
-    @user = user_by_id(params[:id])
     @user.followers.where(follower_id: current_user.id).take.delete
     redirect_to (user_path(@user))
+  end
+
+  private
+
+  def user_by_params_id
+    @user = user_by_id(params[:id])
   end
 end
