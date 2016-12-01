@@ -1,8 +1,8 @@
 class CreateAvatars < ActiveRecord::Migration[5.0]
   def change
     create_table :avatars do |t|
-      t.string :avatar_uid
-      t.string :avatar_name
+      t.string :image_uid
+      t.string :image_name
       t.belongs_to :user
       t.timestamps
     end
