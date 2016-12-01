@@ -47,20 +47,12 @@ ActiveRecord::Schema.define(version: 20161122181128) do
     t.index ["post_id"], name: "index_likes_on_post_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "image_uid"
-    t.string   "image_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.text     "title"
     t.text     "text"
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "image_uid"
   end
 
   create_table "users", force: :cascade do |t|
