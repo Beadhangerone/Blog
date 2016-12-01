@@ -18,7 +18,7 @@ class UserController < ApplicationController
     @header = "#{@user.username.downcase}'s followings"
   end
 
-  def friend_up
+  def follow
     @user.followers.create(follower_id: current_user.id)
     redirect_to (user_path(@user))
   end
