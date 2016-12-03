@@ -1,0 +1,5 @@
+<hr>
+<%posts.reverse.each do |post|%>					
+	<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
+	<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
+<%end%>

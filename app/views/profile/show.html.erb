@@ -78,11 +78,7 @@
 		  </div>
 		  <div class="panel-body">
 				<%if @posts.length > 0%>
-					<hr>
-					<%@posts.each do |post|%>					
-						<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
-						<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
-					<%end%>
+					<%= render partial: 'partials/posts', locals: {posts: @posts} %>
 				<%else%>
 					<p class="hint">You haven't any posts</p>
 				<%end%>				
