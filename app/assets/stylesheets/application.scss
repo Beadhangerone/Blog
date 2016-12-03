@@ -1,5 +1,7 @@
 
-
+.right{
+	float:right;
+}
 
 .border {
 	border: 1px solid #e7e7e7;
@@ -39,7 +41,6 @@
 
 .header-text{
 	font-size: 2em;
-	padding-left: 2em;
 }
 /*END Fonts*/
 
@@ -50,6 +51,7 @@
 }
 
 .header-block{
+	padding-left: 4em;
 	background-color: white;
 	margin-bottom: 2rem;
 }

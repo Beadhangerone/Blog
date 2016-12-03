@@ -5,6 +5,7 @@ class PostController < ApplicationController
 
   def index
     @header = "show all posts"
+    @bars = {"/" => "root path"}
     @posts = Post.all.order(created_at: :desc)
   end
 

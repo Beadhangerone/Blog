@@ -91,8 +91,17 @@
   <%if @header%>
     <div class="container">
       <div class="row">
-        <div class="header-block border hamurz main-color header-text">
-          <%= @header %>
+        <div class="header-block border"> 
+          <div class="row">
+            <div class="col-xs-4 hamurz main-color header-text">
+              <%= @header %>
+            </div>
+            <%if @bars%>
+              <div class="col-xs-8">
+                <%=render partial: 'partials/bar', locals: {bars: @bars } %>
+              </div>
+            <%end%>
+          </div>
         </div>
       </div>
     </div>
