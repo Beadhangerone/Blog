@@ -16,8 +16,7 @@
 
 
 .wall-papper {
-	background-image: url(https://cdn.vectorstock.com/i/composite/83,65/doodle-set-vector-928365.jpg);
-	background-size: 30%;
+	background-image: url(/doodle.png);
 }
 
 
@@ -45,6 +44,15 @@
 /*END Fonts*/
 
 /*Blocks*/
+
+.logo {
+    float: left;
+    height: 50px;
+    padding: 5px 5px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
 .main-block {
 	background-color: white;
 	min-height: 750px;
