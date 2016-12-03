@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :user, :except => [:new, :create, :index]
 
   get 'post/followings' => 'post#followings', as: 'followings_posts'
+  get 'post/liked' => 'post#liked', as: 'liked_posts'
   resources :post do
     resources :comment, :except => [:show, :index, :new]
   end

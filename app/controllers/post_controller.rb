@@ -1,11 +1,14 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
-  before_action :post_by_params_id, except: [ :index, :new, :create, :update, :followings]
+  before_action :post_by_params_id, only: [:like, :unlike, :edit, :destroy, :show]
   before_action :author?, only: [:edit, :destroy]
 
   def index
     @header = "show all posts"
-    @bars = {"#{followings_posts_path}" => "Your followings' posts"}
+    @bars = {
+      "#{followings_posts_path}" => "Your followings' posts",
+      "#{liked_posts_path}" => "Liked posts"
+    }
     @posts = Post.all.order(created_at: :desc)
   end
 
@@ -16,6 +19,14 @@ class PostController < ApplicationController
       Post.where(author_id: follower.user_id).find_each do |follower_post|
         @posts << follower_post
       end
+    end
+  end
+
+  def liked
+    @header = "liked posts"
+    @posts = []
+    Like.where(author_id: current_user.id).find_each do |like|
+      @posts << Post.find(like.post_id) 
     end
   end
 
