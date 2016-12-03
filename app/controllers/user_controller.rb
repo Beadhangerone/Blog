@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-
   before_action :user_by_params_id
   before_action :get_follow_info, except: [:friend_up, :unfollow]
 

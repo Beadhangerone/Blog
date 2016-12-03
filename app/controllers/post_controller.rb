@@ -1,12 +1,22 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
-  before_action :post_by_params_id, except: [ :index, :new, :create, :update]
+  before_action :post_by_params_id, except: [ :index, :new, :create, :update, :followings]
   before_action :author?, only: [:edit, :destroy]
 
   def index
     @header = "show all posts"
-    @bars = {"/" => "root path"}
+    @bars = {"#{followings_posts_path}" => "Your followings' posts"}
     @posts = Post.all.order(created_at: :desc)
+  end
+
+  def followings
+    @header = "followings' posts"
+    @posts = []
+    Follower.where(follower_id: current_user.id).find_each do |follower|
+      Post.where(author_id: follower.user_id).find_each do |follower_post|
+        @posts << follower_post
+      end
+    end
   end
 
   def new
