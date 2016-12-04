@@ -33,17 +33,21 @@ class PostController < ApplicationController
   end
 
   def create
-    post = Post.new
-    post.title = params[:post][:title]
-    post.text = params[:post][:text]
-    post.author_id = current_user.id
-    if post.save 
+    @post = Post.create(
+    :title => params[:post][:title],
+    :text => params[:post][:text],
+    :author_id => current_user.id)
+
+    if @post.valid? 
 
       current_user.amount_of_posts += 1
       current_user.save
 
       flash[:notice] = "Posted successfully."
-      redirect_to post_path(post)
+      redirect_to post_path(@post)
+    else
+      @header = "write a new post"
+      render action: "new"
     end
   end
 

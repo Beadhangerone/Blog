@@ -11,6 +11,14 @@ module ApplicationHelper
     render html:"<span class='glyphicon glyphicon-#{name}'></span>".html_safe
   end
 
+  def error_message (hash)
+    message = ""
+    hash.each do |m|
+      message += "#{m}<br>"
+    end
+    return message
+  end
+
 # renderers END
 
   def user_by_id (id)

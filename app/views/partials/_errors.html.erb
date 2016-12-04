@@ -1,0 +1,11 @@
+<%if resource.errors.any?%>
+	<center>
+		<div class="alert alert-warning">
+			<% resource.errors.full_messages.each do |message|%>
+				<li><%=message%></li>
+			<%end%>
+		</div>
+	</center>
+
+	</ul>
+<%end%>
