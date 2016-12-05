@@ -5,11 +5,7 @@
 				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
 				@avatar.image.url, target: '_blank'%>
 			<%else%>
-				<div class="border">
-					<br><br><br><br>
-					<center class="hint">No photo</center>
-					<br><br><br><br>
-				</div>
+				<%=image_tag("/no-avatar.png", class: 'img-thumbnail')%>
 			<%end%>
 			<br><br>
 		<%if @user != current_user%>
@@ -27,7 +23,8 @@
 
 	<div class="col-md-8 col-sm-8 col-xs-7">
 		<div class="border content">
-			<h3><b><%= @user.username %></b></h3><hr>
+			<h2 class="content hamurz main-color"><b><%= current_user.username.downcase %></b></h2>
+			<hr>
 			<p><b>Amount of posts: </b><%= @user.amount_of_posts %></p>
 			<p><b>Registered at: <br></b><%= @user.created_at %></p>
 		</div>
