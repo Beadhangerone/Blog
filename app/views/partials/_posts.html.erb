@@ -1,5 +1,16 @@
 <hr>
 <%posts.reverse.each do |post|%>					
 	<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
-	<b>Posted by:</b> <%= user_by_id(post.author_id).username %><hr>
+	<b>Posted by:</b> <%= user_by_id(post.author_id).username %><br>
+	<center>
+		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=post.id%>" aria-expanded="true" aria-controls="<%=post.id%>">
+		<%=icon("chevron-down")%>
+	    </a>
+	</center>
+
+	<div id="<%=post.id%>" class="collapse">
+		<%=post.text%>
+	</div>
+
+    <hr>
 <%end%>
