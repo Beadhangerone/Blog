@@ -1,0 +1,7 @@
+<%if resource.avatar%>
+	<%= link_to image_tag(resource.avatar.image.url, class: 'img-thumbnail'), 
+		user_path(resource)%>
+	<%=%>
+<%else%>
+	<%=image_tag("/no-avatar.png", class: 'img-thumbnail')%>
+<%end%>

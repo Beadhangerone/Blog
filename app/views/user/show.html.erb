@@ -1,12 +1,7 @@
 
 <div class="row">
 	<div class="col-md-3 col-sm-4 col-xs-5">
-			<%if @avatar%>
-				<%= link_to image_tag(@avatar.image.url, class: 'img-thumbnail'), 
-				@avatar.image.url, target: '_blank'%>
-			<%else%>
-				<%=image_tag("/no-avatar.png", class: 'img-thumbnail')%>
-			<%end%>
+			<%=render partial: "partials/avatar", locals: {resource: @user}%>
 			<br><br>
 		<%if @user != current_user%>
 			<%if $followers.include?(current_user)%>

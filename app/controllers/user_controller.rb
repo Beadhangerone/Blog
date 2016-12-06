@@ -4,7 +4,6 @@ class UserController < ApplicationController
 
   def show
     @header = "#{@user.username.downcase}'s page"
-    @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
 
   end

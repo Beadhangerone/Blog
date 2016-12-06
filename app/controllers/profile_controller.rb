@@ -4,7 +4,6 @@ class ProfileController < ApplicationController
 
   def show
     @header = "your profile"
-    @avatar = @user.avatar
     @posts = Post.where(author_id: @user.id).order(created_at: :desc)
   end
 
