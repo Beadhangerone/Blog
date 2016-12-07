@@ -1,5 +1,5 @@
 <%if resource.avatar%>
-	<%= link_to image_tag(resource.avatar.image.url, class: 'img-thumbnail'), 
+	<%= link_to image_tag(resource.avatar.image.thumb('300x200#').url, class: 'img-thumbnail'), 
 		user_path(resource)%>
 	<br><br>
 <%else%>

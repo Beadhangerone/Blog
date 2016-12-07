@@ -7,11 +7,14 @@
           <div class="col-xs-9 hamurz main-color header-text">
             <%= @header %>
           </div>
-          <div class="col-xs-3">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bars">
-              <span class="icon-bar"></span>
-            </button>
-          </div>
+          <%if bars%>
+            <div class="col-xs-3">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" 
+              data-target="#bars">
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          <%end%>
         </div>
         <div class="collapse navbar-collapse" id="bars">
           <%=render partial: 'partials/bar', locals: {bars: bars} %>
