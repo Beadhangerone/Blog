@@ -1,15 +1,8 @@
 <%if resource.avatar%>
-	<%= link_to image_tag(resource.avatar.image.thumb('300x200#').url, class: 'img-thumbnail'), 
+	<%= link_to image_tag(resource.avatar.image.url, class: 'img-thumbnail'), 
 		user_path(resource)%>
 	<br><br>
 <%else%>
-	<%=image_tag("/no-avatar.png", class: 'img-thumbnail')%>
-	<%if resource == current_user%>
-		<br><br>
-		<span class="hint">You haven't an avatar</span>
-		<div class="list-group">
-			<a class="list-group-item" href="<%=new_avatar_path%>"><%=icon('picture')%> Upload one
-			</a>
-		</div>
-	<%end%>
+	<%= link_to image_tag("/no-avatar.png", class: 'img-thumbnail'), 
+		user_path(resource)%>
 <%end%>

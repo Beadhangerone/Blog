@@ -3,6 +3,7 @@
 	<div class="col-md-3 col-sm-4 col-xs-5">
 			<%=render partial: "partials/avatar", locals: {resource: @user}%>
 		<%if @user != current_user%>
+			<br><br>
 			<%if $followers.include?(current_user)%>
 				<div class="list-group">
 					<a class="list-group-item" rel="nofollow" data-method="delete"               href="<%=unfollow_path(@user)%>"><%=icon("minus")%> Unfollow</a>

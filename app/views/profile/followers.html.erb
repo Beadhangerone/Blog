@@ -2,6 +2,8 @@
 <% $followers.each do |follower|%>
 	<div class="col-xs-3">
 		<%=render partial: "partials/avatar", locals: {resource: follower}%>
-		<b>Username: </b><%=link_to_user(follower)%><br>
+		<center>
+			<h3 class="content hamurz main-color"><b><%= follower.username.downcase %></b></h3>
+		</center>
 	</div>
 <%end%>
