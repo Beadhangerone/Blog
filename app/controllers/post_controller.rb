@@ -17,6 +17,7 @@ class PostController < ApplicationController
         @posts << follower_post
       end
     end
+    @posts = @posts.paginate(:page => params[:page], :per_page => 2)
   end
 
   def liked
@@ -25,6 +26,7 @@ class PostController < ApplicationController
     Like.where(author_id: current_user.id).find_each do |like|
       @posts << Post.find(like.post_id) 
     end
+    @posts = @posts.paginate(:page => params[:page], :per_page => 2)
   end
 
   def new
