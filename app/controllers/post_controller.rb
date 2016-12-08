@@ -6,7 +6,7 @@ class PostController < ApplicationController
 
   def index
     @header = "all posts"
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 2)
   end
 
   def followings
