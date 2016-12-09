@@ -1,8 +1,12 @@
 class CommentController < ApplicationController
   def create
-    post = Post.find(params[:post_id])
-    comment = post.comments.create(text: params[:comment], author_id: current_user.id)
-    redirect_to post_path(post)
+    comment = $post.comments.create(text: params[:comment][:text], author_id: current_user.id)
+    if comment.valid?
+      flash[:notice] = "Commented successfully."
+      redirect_to post_path($post)
+    else
+      redirect_to post_path($post)
+    end
   end
 
 end

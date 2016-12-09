@@ -1,5 +1,5 @@
 <hr>
-<%posts.reverse.each do |post|%>					
+<%posts.each do |post|%>					
 	<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
 	<b>Posted by:</b> <%= user_by_id(post.author_id).username %><br>
 	<center>
@@ -14,5 +14,3 @@
 
     <hr>
 <%end%>
-
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
