@@ -27,12 +27,12 @@ class PostController < ApplicationController
   end
 
   def create
-    @post = Post.create(
-    :title => params[:post][:title],
-    :text => params[:post][:text],
-    :author_id => current_user.id)
+    @post = Post.new
 
-    if @post.valid? 
+    if @post.save 
+      @post.title = params[:post][:title]
+      @post.text = params[:post][:text]
+      @post.author_id = current_user.id
 
       current_user.amount_of_posts += 1
       current_user.save

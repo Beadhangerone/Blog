@@ -7,16 +7,17 @@ class AvatarController < ApplicationController
 
   def create
     if current_user.avatar
-      @avatar = current_user.avatar
-    else
-      @avatar=Avatar.new
+      current_user.avatar.delete
     end
-    @avatar.image = params[:avatar][:image]
-    @avatar.user_id = current_user.id
+    @avatar=Avatar.new
+      
     if @avatar.save
+      @avatar.image = params[:avatar][:image]
+      @avatar.user_id = current_user.id
       flash[notice] = "Photo saved!"
       redirect_to profile_path
     else
+      @header = "upload your photo"
       render 'new'
     end
   end
