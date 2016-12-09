@@ -6,27 +6,19 @@ class PostController < ApplicationController
 
   def index
     @header = "all posts"
-    @posts = Post.paginate(:page => params[:page], :per_page => 2)
+    @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
   end
 
   def followings
     @header = "followings' posts"
-    @posts = []
-    Follower.where(follower_id: current_user.id).find_each do |follower|
-      Post.where(author_id: follower.user_id).find_each do |follower_post|
-        @posts << follower_post
-      end
-    end
-    @posts = @posts.paginate(:page => params[:page], :per_page => 2)
+    followings = Follower.where(follower_id: current_user.id).map(&:user_id)
+    @posts = Post.where(author_id: followings).order(created_at: :desc).paginate(page: params[:page], :per_page => 2)
   end
 
   def liked
     @header = "liked posts"
-    @posts = []
-    Like.where(author_id: current_user.id).find_each do |like|
-      @posts << Post.find(like.post_id) 
-    end
-    @posts = @posts.paginate(:page => params[:page], :per_page => 2)
+    liked = Like.where(author_id: current_user.id).map(&:post_id)
+    @posts = Post.where(id: liked).order(created_at: :desc).paginate(page: params[:page], :per_page => 2)
   end
 
   def new
@@ -54,6 +46,7 @@ class PostController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @header = $post.title.downcase
     @author = user_by_id($post.author_id)
     @comments = $post.comments.reverse
