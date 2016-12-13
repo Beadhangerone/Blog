@@ -6,20 +6,31 @@ class AvatarController < ApplicationController
   end
 
   def create
-    if current_user.avatar
-      current_user.avatar.delete
-    end
     @avatar=Avatar.new
-      
-    if @avatar.save
+    if params[:avatar]
+      if current_user.avatar
+        current_user.avatar.delete
+      end
       @avatar.image = params[:avatar][:image]
       @avatar.user_id = current_user.id
+    end
+    if @avatar.save
+
       flash[notice] = "Photo saved!"
       redirect_to profile_path
     else
       @header = "upload your photo"
       render 'new'
     end
+  end
+
+
+
+
+  private
+
+  def avatar_params
+    params.require(:avatar).permit(:image)
   end
 
 
