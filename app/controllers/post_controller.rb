@@ -71,6 +71,9 @@ class PostController < ApplicationController
     if $post.save
       flash[:notice] = "Edited successfully."
       redirect_to post_path($post)
+    else
+      @header = "edit post"
+      render action: "edit"
     end
   end
 

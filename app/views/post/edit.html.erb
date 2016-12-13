@@ -1,4 +1,7 @@
 <%= form_for $post, url: {action: "update"} do |f| %>
+
+	<%=render partial: "/partials/errors", locals: {resource: $post}%>
+
 	<%= f.label :title %>
 	<%= f.text_field :title, class: 'form-control' %>
 
