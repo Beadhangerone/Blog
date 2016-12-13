@@ -23,16 +23,13 @@ class PostController < ApplicationController
 
   def new
     @header = "write a new post"
-    @post=Post.new
+    @post = Post.new
   end
 
   def create
-    @post = Post.new
-
-    if @post.save 
-      @post.title = params[:post][:title]
-      @post.text = params[:post][:text]
-      @post.author_id = current_user.id
+    @post = Post.new(post_params)
+    @post.author_id = current_user.id
+    if @post.save
 
       current_user.amount_of_posts += 1
       current_user.save
@@ -87,7 +84,15 @@ class PostController < ApplicationController
     redirect_to post_path($post)
   end
 
+
+
+
+
   private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 
   def author?
     if $post.author_id != current_user.id
