@@ -2,7 +2,7 @@
 	<div class="border">
 		<div class="panel panel-default">
 		  	<div class="panel-heading">
-			  	<a href="<%=profile_followers_path%>">
+			  	<a href="<%=user_followers_path(resource)%>">
 				    <span class="panel-title">Followers </span>
 				    <span class="badge"><%=followers.length%></span>
 				</a>
@@ -20,7 +20,7 @@
 
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	<a href="<%=profile_followings_path%>">
+		  	<a href="<%=user_followings_path(resource)%>">
 			    <span class="panel-title">Followings </span>
 			    <span class="badge"><%=followings.length%></span>
 			</a>

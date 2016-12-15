@@ -49,9 +49,9 @@
             <%if user_signed_in?%>
 
               <li>
-                <%=link_to "Followers", profile_followers_path%>
+                <%=link_to "Followers", user_followers_path(current_user)%>
               <li>  
-                <%=link_to "Followings", profile_followings_path%>
+                <%=link_to "Followings", user_followings_path(current_user)%>
               <li class="dropdown">
                 <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%=icon("user")%> <%=current_user.username%> <span class="caret"></span>
