@@ -1,20 +1,12 @@
 <%if comments.length > 0%>
 
 	<%comments.each do |comment|%>
-		<div class="border">
-			<p><b><%= link_to_user(user_by_id(comment.author_id))%></b> said:</p>
 
-			<div class="row">
-
-				<div class="col-md-10">
-					<p><%=comment.text%></p>
-				</div>
-
-				<div class="col-md-2">
-					<small><%=hint("#{comment.created_at}")%></p></small>
-				</div>
-			</div>
-		</div>	
+	<div class="panel panel-default">
+	  <div class="panel-heading"><%= link_to_user(user_by_id(comment.author_id))%> said:</div>
+	  <br>
+	  <p class="content"><%=comment.text%></p>
+	</div>	
 	<% end %>
 <%else%>
 	<h5><%= hint('Your comment will be the first')%></h5>

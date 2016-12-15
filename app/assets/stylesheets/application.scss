@@ -2,6 +2,18 @@ a:hover {
 	text-decoration: none
 }
 
+h1{
+	font-size: 2.4em;
+}
+
+h2{
+	font-size: 2em;
+}
+
+h3{
+	font-size: 1.8em;
+}
+
 
 .right{
 	float:right;
@@ -14,7 +26,7 @@ a:hover {
 }
 
 .content {
-	padding-left: 1rem;
+	padding-left: 1em;
 }
 
 
@@ -43,7 +55,8 @@ a:hover {
 }
 
 .header-text{
-	font-size: 30px;
+	font-size: 1.8em;
+	vertical-align: middle;
 }
 /*END Fonts*/
 

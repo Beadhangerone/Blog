@@ -1,9 +1,11 @@
 
 <div class="row">
-	<div class="col-md-9 col-sm-9 col-xs-12">
-		<h2><%= $post.title %></h2>
-		<hr>
-		<p><%= $post.text %></p>
+	<div class="col-md-9 col-sm-9 col-xs-12 ">
+		<div class="well well-lg">
+			<h1><%= $post.title %></h1>
+			<hr>
+			<p><%= $post.text %></p>
+		</div>
 		<hr>
 		<p>
 		Posted by: <b><i><%=link_to_user(@author)%></i></b> on <b><i><%=$post.created_at%></i></b>
