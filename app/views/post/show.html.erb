@@ -57,27 +57,9 @@
 
 <div class="row"><hr>
 	<div class="col-md-9">
-		<%if @comments.length > 0%>
 
-			<%@comments.each do |comment|%>
-				<div class="border">
-					<p><b><%= link_to_user(user_by_id(comment.author_id))%></b> said:</p>
+	<%=render partial: "/partials/comments", locals: {comments: @comments}%>
 
-					<div class="row">
-
-						<div class="col-md-10">
-							<p><%=comment.text%></p>
-						</div>
-
-						<div class="col-md-2">
-							<small><p class='hint'><%=comment.created_at%></p></small>
-						</div>
-					</div>
-				</div>	
-			<% end %>
-		<%else%>
-			<h5><p class='hint'>Your comment will be the first</p></h5>
-		<%end%>
 	</div>
 </div>
 

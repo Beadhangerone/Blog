@@ -19,6 +19,10 @@ module ApplicationHelper
     return message
   end
 
+  def hint (text)
+    render html: "<p class='hint'>#{text}</p>".html_safe
+  end
+
 # renderers END
 
   def user_by_id (id)
