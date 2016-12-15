@@ -1,8 +1,9 @@
 <%if posts.length > 0%>
 	<hr>
 	<%posts.each do |post|%>					
-	<h4><a href="<%=post_path(post)%>"><%=post.title%></a></h4>
-	<b>Posted by:</b> <%= user_by_id(post.author_id).username %><br>
+	<h3><a href="<%=post_path(post)%>"><%=post.title%></a></h3>
+	<b>Posted by:</b> <%=link_to_user(user_by_id(post.author_id)) %><br>
+	<%=hint("#{post.comments.length} comments")%>
 	<center>
 		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=post.id%>" aria-expanded="true" aria-controls="<%=post.id%>">
 		<%=icon("chevron-down")%>
@@ -16,5 +17,5 @@
     <hr>
 <%end%>
 <%else%>
-	<p class="hint">No posts</p>
+	<%=hint("No posts")%>
 <%end%>
