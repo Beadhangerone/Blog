@@ -12,7 +12,7 @@
 		</p>
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
-		<div class="hidden-xs"><br><br><br><br></div>
+		<div class="hidden-xs"><br><br></div>
 		<div class="list-group">
 			<% if @author.id == current_user.id %>
 				<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path($post)%>" data-confirm="Are you sure ?">
@@ -37,7 +37,7 @@
 		<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
 			<%=@likers.length%>
 		</a> 
-		people like it
+		people liked it
 	</div>
 </div>
 

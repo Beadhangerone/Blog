@@ -3,8 +3,17 @@
 	<%comments.each do |comment|%>
 
 	<div class="panel panel-default">
-	  <div class="panel-heading"><%= link_to_user(user_by_id(comment.author_id))%> said:</div>
-	  <br>
+	  <div class="panel-heading no-btm-padding">
+	  <div class="row">
+	  	<div class="col-xs-6">
+	  		<%= link_to_user(user_by_id(comment.author_id))%> said:
+	  	</div>
+	  	<div class="col-xs-6">
+	  		<small class="right"><%=comment.created_at%></small>
+	  	</div>
+	  </div>
+	  	<div class="arrow-up"></div>
+	  </div>
 	  <p class="content"><%=comment.text%></p>
 	</div>	
 	<% end %>
