@@ -3,7 +3,7 @@
 		<div class="panel panel-default">
 		  	<div class="panel-heading">
 			  	<a href="<%=profile_followers_path%>">
-				    <span class="panel-title">Your followers </span>
+				    <span class="panel-title">Followers </span>
 				    <span class="badge"><%=followers.length%></span>
 				</a>
 		  	</div>
@@ -13,7 +13,7 @@
 						<%= link_to_user (follower) %><br>
 					<%end%>
 				<%else%>
-					<%=hint("You haven't any followers")%>
+					<%=hint("No followers yet")%>
 				<%end%>				
 			</div>
 		</div><hr>
@@ -21,7 +21,7 @@
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 		  	<a href="<%=profile_followings_path%>">
-			    <span class="panel-title">Your followings </span>
+			    <span class="panel-title">Followings </span>
 			    <span class="badge"><%=followings.length%></span>
 			</a>
 		  </div>
@@ -31,7 +31,7 @@
 						<%= link_to_user (following) %><br>
 					<%end%>
 				<%else%>
-					<%=hint("You haven't any followings")%>
+					<%=hint("No followings yet")%>
 				<%end%>				
 			</div>
 		</div>

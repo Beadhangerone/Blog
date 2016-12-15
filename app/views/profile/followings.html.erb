@@ -1,7 +1,7 @@
 
 <% $followings.each do |following|%>
 	<div class="col-xs-3">
-		<%=render partial: "partials/avatar", locals: {resource: following, size: '380x400'}%>
+		<%=render partial: "partials/avatar", locals: {resource: following}%>
 		<center>
 			<h3 class="content hamurz main-color"><b><%= following.username.downcase %></b></h3>
 		</center>
