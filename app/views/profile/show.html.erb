@@ -3,7 +3,7 @@
 		<%=render partial: "partials/avatar", locals: {resource: @user, size: '380x400'}%>
 		<%if not @user.avatar%>
 		<br><br>
-		<span class="hint">You haven't an avatar</span>
+		<%= hint("You haven't an avatar")%>
 		<div class="list-group">
 			<a class="list-group-item" href="<%=new_avatar_path%>"><%=icon('picture')%> Upload one
 			</a>
@@ -26,49 +26,8 @@
 <hr>
 <div class="row">
 
-	<div class="col-md-3 col-sm-4 col-xs-12">
-		<div class="border">
-			<div class="panel panel-default">
-			  	<div class="panel-heading">
-				  	<a href="<%=profile_followers_path%>">
-					    <span class="panel-title">Your followers </span>
-					    <span class="badge"><%=$followers.length%></span>
-					</a>
-			  	</div>
-			  	<div class="panel-body">
-					<%if $followers.length > 0%>
-						<% $followers.each do |follower| %>
-							<%= link_to_user (follower) %><br>
-						<%end%>
-					<%else%>
-						<p class="hint">You haven't any followers</p>
-					<%end%>				
-				</div>
-			</div><hr>
-
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			  	<a href="<%=profile_followings_path%>">
-				    <span class="panel-title">Your followings </span>
-				    <span class="badge"><%=$followings.length%></span>
-				</a>
-			  </div>
-			  <div class="panel-body">
-					<%if $followings.length > 0%>
-						<% $followings.each do |following| %>
-							<%= link_to_user (following) %><br>
-						<%end%>
-					<%else%>
-						<p class="hint">You haven't any followings</p>
-					<%end%>				
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="visible-xs row">
-		<div class="col-xs-12"><br><br></div>
-	</div>
+<%=render partial: 'partials/follow-panels', 
+	locals: {followers: $followers, followings: $followings}%>
 
 	<div class="col-md-8 col-sm-8 col-xs-12">
 		<div class="panel panel-default">

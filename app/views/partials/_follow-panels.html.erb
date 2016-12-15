@@ -1,0 +1,43 @@
+<div class="col-md-3 col-sm-4 col-xs-12">
+	<div class="border">
+		<div class="panel panel-default">
+		  	<div class="panel-heading">
+			  	<a href="<%=profile_followers_path%>">
+				    <span class="panel-title">Your followers </span>
+				    <span class="badge"><%=followers.length%></span>
+				</a>
+		  	</div>
+		  	<div class="panel-body">
+				<%if followers.length > 0%>
+					<% followers.each do |follower| %>
+						<%= link_to_user (follower) %><br>
+					<%end%>
+				<%else%>
+					<%=hint("You haven't any followers")%>
+				<%end%>				
+			</div>
+		</div><hr>
+
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		  	<a href="<%=profile_followings_path%>">
+			    <span class="panel-title">Your followings </span>
+			    <span class="badge"><%=followings.length%></span>
+			</a>
+		  </div>
+		  <div class="panel-body">
+				<%if followings.length > 0%>
+					<% followings.each do |following| %>
+						<%= link_to_user (following) %><br>
+					<%end%>
+				<%else%>
+					<%=hint("You haven't any followings")%>
+				<%end%>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="visible-xs row">
+	<div class="col-xs-12"><br><br></div>
+</div>

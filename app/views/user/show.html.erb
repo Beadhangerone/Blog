@@ -28,50 +28,8 @@
 <hr>
 <div class="row">
 
-	<div class="col-md-3 col-sm-4 col-xs-12">
-
-		<div class="border">
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			  	<a href="<%=user_followers_path(@user)%>">
-				    <span class="panel-title"><%=@user.username%>'s followers </span>
-				    <span class="badge"><%=$followers.length%></span>
-				</a>
-			  </div>
-			  <div class="panel-body">
-					<%if $followers.length > 0%>
-						<% $followers.each do |follower| %>
-							<%= link_to_user (follower) %><br>
-						<%end%>
-					<%else%>
-						<p class="hint"><%=@user.username%> haven't any followers</p>
-					<%end%>				
-				</div>
-			</div><hr>
-
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			  	<a href="<%=user_followings_path(@user)%>">
-				    <span class="panel-title"><%=@user.username%>'s followings </span>
-				    <span class="badge"><%=$followings.length%></span>
-				</a>
-			  </div>
-			  <div class="panel-body">
-					<%if $followings.length > 0%>
-						<% $followings.each do |following| %>
-							<%= link_to_user (following) %><br>
-						<%end%>
-					<%else%>
-						<p class="hint"><%=@user.username%> haven't any followings</p>
-					<%end%>				
-				</div>
-			</div>
-		</div>			
-	</div>
-
-	<div class="visible-xs row">
-		<div class="col-xs-12"><br><br></div>
-	</div>
+<%=render partial: 'partials/follow-panels', 
+	locals: {followers: $followers, followings: $followings}%>
 
 	<div class="col-md-8 col-sm-8 col-xs-12">
 
