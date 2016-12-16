@@ -12,11 +12,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="<%=active?(['/post', '/post/followings', '/post/liked'])%>">  
+        <li class="<%=active?([followings_posts_path, liked_posts_path, post_index_path])%>">  
           <a href="<%=post_index_path%>">
             <%=icon("list-alt")%> Show posts
           </a>
-        <li>
+        <li class="<%=active?([new_post_path])%>">
           <a href="<%=new_post_path%>">
             <%=icon("pencil")%> Write a post
           </a>
@@ -24,9 +24,9 @@
       <ul class="nav navbar-nav navbar-right">
         <%if user_signed_in?%>
 
-          <li>
+          <li class="<%=active?([user_followers_path(current_user)])%>">
             <%=link_to "Followers", user_followers_path(current_user)%>
-          <li>  
+          <li class="<%=active?([user_followings_path(current_user)])%>">  
             <%=link_to "Followings", user_followings_path(current_user)%>
           <li class="dropdown">
             <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
