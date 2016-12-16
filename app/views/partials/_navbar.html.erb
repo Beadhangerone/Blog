@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <%= link_to image_tag("/logo.png", class: 'logo'), root_path %>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "doodle blog", root_path, class: "hamurz navbar-brand"%>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="<%=active?(['/post', '/post/followings', '/post/liked'])%>">  
+          <a href="<%=post_index_path%>">
+            <%=icon("list-alt")%> Show posts
+          </a>
+        <li>
+          <a href="<%=new_post_path%>">
+            <%=icon("pencil")%> Write a post
+          </a>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <%if user_signed_in?%>
+
+          <li>
+            <%=link_to "Followers", user_followers_path(current_user)%>
+          <li>  
+            <%=link_to "Followings", user_followings_path(current_user)%>
+          <li class="dropdown">
+            <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <%=icon("user")%> <%=current_user.username%> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="<%=profile_path%>">
+                  <%=icon("file")%> Your profile
+                </a>
+              </li>
+              <li>
+                <a href="/settings"><%=icon("cog")%></span> Settings</a>
+              </li>
+              <li>
+                <a href="#">Something else here</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="<%=destroy_user_session_path%>" data-method="delete">
+                  <%=icon("log-out")%> Sign out
+                </a>
+            </ul>
+          </li>
+        <%else%>
+          <li>
+            <a href="<%=new_user_session_path%>">
+            <%=icon("log-in")%> Sign in</a>                   
+          </li>
+          <li>
+            <a href="<%=new_user_registration_path%>">
+            <%=icon("check")%> Sign up</a>
+          </li>
+        <%end%>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

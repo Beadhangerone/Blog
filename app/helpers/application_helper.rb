@@ -23,6 +23,14 @@ module ApplicationHelper
     render html: "<p class='hint'>#{text}</p>".html_safe
   end
 
+  def active? (urls)
+    urls.each do |url|
+      if current_page?("#{url}")
+        return 'active' 
+      end
+    end
+  end
+
 # renderers END
 
   def user_by_id (id)
