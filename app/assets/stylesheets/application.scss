@@ -17,6 +17,7 @@ h3{
 
 
 /*custom*/
+
 .arrow-up {
   width: 0; 
   height: 0; 
@@ -53,6 +54,59 @@ h3{
 .wall-papper {
 	background-image: url(/doodle.png);
 }
+
+
+
+
+/*active links*/
+	/*bars*/
+/*		{
+			padding-bottom: 12px;
+		}*/
+		.nav-pills>li.active>a{
+			background-color: transparent;
+			color: #337ab7;
+			border-bottom: 3px solid #337ab7;
+			border-radius: 0px;
+
+		}
+		.nav-pills>li>a:hover {
+		    background-color: transparent;
+			color: #23527c;
+			border-bottom: 3px solid #337ab7;
+			border-radius: 0px;
+		}
+
+		.nav-pills>li.active>a:hover {
+		    color: #23527c;
+		    background-color: transparent;
+		}
+	/*bars END*/
+
+	/*navbar*/
+		.navbar-nav>li>a{
+			padding-bottom: 12px;
+		}
+		.navbar-default .navbar-nav>.active>a{
+			background-image: none;
+			-webkit-box-shadow: none;
+			background-color: transparent;
+			color: #555;
+			border-bottom: 3px solid #555;
+			border-radius: 0px;
+		}
+		.navbar-default .navbar-nav>li>a:hover{
+			background-color: transparent;
+			border-bottom: 3px solid #555;
+			border-radius: 0px;
+		}
+		.navbar-default .navbar-nav>.active>a:hover{
+			background-color: transparent;
+			border-bottom: 3px solid #555;
+			border-radius: 0px;
+		}
+	/*navbar END*/
+/*active links END*/
 
 
 /*END custom*/
