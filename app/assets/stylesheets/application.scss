@@ -126,12 +126,22 @@ h3{
 }
 
 .header-text{
+	padding-top: 6px;
 	font-size: 1.881em;
 	vertical-align: middle;
 }
 /*END Fonts*/
 
 /*Blocks*/
+
+.search-block{
+	margin-bottom: 0; 
+}
+
+.search-form{
+	display: inline;
+	width: auto;
+}
 
 .logo {
     float: left;
