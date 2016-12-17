@@ -1,3 +1,5 @@
+/*tags*/
+
 a:hover {
 	text-decoration: none
 }
@@ -13,10 +15,14 @@ h2{
 h3{
 	font-size: 1.8em;
 }
-
+/*tags END*/
 
 
 /*custom*/
+.shadow{
+	border-bottom: none;
+	box-shadow: 5px 5px 5px #888888;
+}
 
 .arrow-up {
   width: 0; 
@@ -58,52 +64,52 @@ h3{
 
 
 
-/*active links*/
-.nav>li>a{
-	padding-bottom: 12px;
-}
-	/*bars*/
-		.nav-pills>li.active>a{
-			background-color: transparent;
-			color: #337ab7;
-			border-bottom: 3px solid #337ab7;
-			border-radius: 0px;
+	/*active links*/
+	.nav>li>a{
+		padding-bottom: 12px;
+	}
+		/*bars*/
+			.nav-pills>li.active>a{
+				background-color: transparent;
+				color: #337ab7;
+				border-bottom: 3px solid #337ab7;
+				border-radius: 0px;
 
-		}
-		.nav-pills>li>a:hover {
-		    background-color: transparent;
-			color: #23527c;
-			border-bottom: 3px solid #337ab7;
-			border-radius: 0px;
-		}
+			}
+			.nav-pills>li>a:hover {
+			    background-color: transparent;
+				color: #23527c;
+				border-bottom: 3px solid #337ab7;
+				border-radius: 0px;
+			}
 
-		.nav-pills>li.active>a:hover {
-		    color: #23527c;
-		    background-color: transparent;
-		}
-	/*bars END*/
+			.nav-pills>li.active>a:hover {
+			    color: #23527c;
+			    background-color: transparent;
+			}
+		/*bars END*/
 
-	/*navbar*/
-		.navbar-default .navbar-nav>.active>a{
-			background-image: none;
-			-webkit-box-shadow: none;
-			background-color: transparent;
-			color: #555;
-			border-bottom: 3px solid #555;
-			border-radius: 0px;
-		}
-		.navbar-default .navbar-nav>li>a:hover{
-			background-color: transparent;
-			border-bottom: 3px solid #555;
-			border-radius: 0px;
-		}
-		.navbar-default .navbar-nav>.active>a:hover{
-			background-color: transparent;
-			border-bottom: 3px solid #555;
-			border-radius: 0px;
-		}
-	/*navbar END*/
-/*active links END*/
+		/*navbar*/
+			.navbar-default .navbar-nav>.active>a{
+				background-image: none;
+				-webkit-box-shadow: none;
+				background-color: transparent;
+				color: #555;
+				border-bottom: 3px solid #555;
+				border-radius: 0px;
+			}
+			.navbar-default .navbar-nav>li>a:hover{
+				background-color: transparent;
+				border-bottom: 3px solid #555;
+				border-radius: 0px;
+			}
+			.navbar-default .navbar-nav>.active>a:hover{
+				background-color: transparent;
+				border-bottom: 3px solid #555;
+				border-radius: 0px;
+			}
+		/*navbar END*/
+	/*active links END*/
 
 
 /*END custom*/
@@ -133,31 +139,33 @@ h3{
 /*END Fonts*/
 
 /*Blocks*/
+	/*search*/
+		#search-fader{
+			cursor: pointer;
+			color: #777;
+			padding: 3px;
+			padding-top: 9px;
+			padding-bottom: 12px;
+			border: 1px solid #e7e7e7;
+			border-bottom: 0;
+			margin-bottom: -3px;
+			border-radius: 3px;
+			background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
+		}
 
-#search-fader{
-	color: #777;
-	margin-right: 30px;
-	padding: 5px;
-	padding-bottom: 9px;
-	border: 1px solid #e7e7e7;
-	border-bottom: 0;
-	margin-bottom: -3px;
-	border-radius: 3px;
-	background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
-}
+		#search-form{
+			display: none;	
+		}
 
-#search-form{
-	display: none;	
-}
+		.search-block{
+			margin-bottom: 0;
+		}
 
-.search-block{
-	margin-bottom: 0; 
-}
-
-.search-form{
-	display: inline;
-	width: auto;
-}
+		.search-form{
+			display: inline;
+			width: auto;
+		}
+	/*search*/
 
 .logo {
     float: left;
@@ -169,12 +177,13 @@ h3{
 
 .main-block {
 	background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
-	min-height: 750px;
+	min-height: 600px;
 }
 .header-bar {
     position: relative;
     margin-bottom: 20px;
     border: 1px solid transparent;
+    border-bottom: none;
 }
 .header-block{
 
