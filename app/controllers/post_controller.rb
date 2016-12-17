@@ -7,7 +7,6 @@ class PostController < ApplicationController
   def index
     @header = "all posts"
     @posts = Post.search(params[:search]).order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
-    # @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
   end
 
   def followings
@@ -31,10 +30,6 @@ class PostController < ApplicationController
     @post = Post.new(post_params)
     @post.author_id = current_user.id
     if @post.save
-
-      current_user.amount_of_posts += 1
-      current_user.save
-
       flash[:notice] = "Posted successfully."
       redirect_to post_path(@post)
     else
