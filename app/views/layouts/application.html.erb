@@ -3,7 +3,7 @@
   <head>
     <title>Project</title>
     <%= csrf_meta_tags %>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Latest compiled and minified CSS -->
@@ -21,16 +21,18 @@
   </head>
 
   <body class="wall-papper res_font container-fluid">
+  <br>
+  <div id="search-fader" class="right"><%=icon("search")%></div>
   
   <div class="row container-fluid">
-      <form class="form-inline right" action="<%=post_index_path%>" method="get"> 
+      <form id="search-form" class="form-inline right" action="<%=post_index_path%>" method="get"> 
         <div class="form-group search-block"> 
-          <input name="search" class="form-control search-form" placeholder="Search", value="<%=params[:search]%>"> 
+          <input id="search-field" name="search" class="form-control search-form" placeholder="Search", value="<%=params[:search]%>" > 
         <button type="submit" class="btn btn-default">Submit</button> 
         </div> 
       </form>
   </div>
-
+    
     <%=render partial: 'partials/navbar'%>
 
     <div class="visible-xs">
