@@ -1,14 +1,4 @@
-$(document).ready(function(){
-	if ( $("#search-field").attr("value") ){
-        $("#search-form").show()
-    }
-})
 
-$(document).ready(function(){
-    $("#search-fader").click(function(){
-        $("#search-form").slideToggle(70);
-    });
-});
 
 
 // This is a manifest file that'll be compiled into application.js, which will include all the files
@@ -27,3 +17,5 @@ $(document).ready(function(){
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
