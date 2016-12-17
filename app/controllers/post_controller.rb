@@ -6,7 +6,8 @@ class PostController < ApplicationController
 
   def index
     @header = "all posts"
-    @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
+    @posts = Post.search(params[:search]).order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
+    # @posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
   end
 
   def followings

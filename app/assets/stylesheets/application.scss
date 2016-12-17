@@ -59,10 +59,10 @@ h3{
 
 
 /*active links*/
+.nav>li>a{
+	padding-bottom: 12px;
+}
 	/*bars*/
-/*		{
-			padding-bottom: 12px;
-		}*/
 		.nav-pills>li.active>a{
 			background-color: transparent;
 			color: #337ab7;
@@ -84,9 +84,6 @@ h3{
 	/*bars END*/
 
 	/*navbar*/
-		.navbar-nav>li>a{
-			padding-bottom: 12px;
-		}
 		.navbar-default .navbar-nav>.active>a{
 			background-image: none;
 			-webkit-box-shadow: none;
