@@ -33,8 +33,16 @@ h3{
 	  height: 0; 
 	  border-left: 5px solid transparent;
 	  border-right: 5px solid transparent;
-	  
 	  border-bottom: 5px solid white;
+	}
+
+	.well-arrow-up{
+		margin-left: 50px;
+		border-bottom: 5px solid #e8e8e8;
+	}
+
+	.post-well{
+		border-top: 0;
 	}
 
 	.no-padding{
