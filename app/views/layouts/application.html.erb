@@ -24,16 +24,7 @@
 
   <body class="wall-papper res_font container-fluid">
   <br>
-  <div id="search-fader" class="shadow right"><%=icon("search")%></div>
   
-  <div class="row container-fluid">
-      <form id="search-form" class="form-inline right" action="<%=post_index_path%>" method="get"> 
-        <div class="form-group search-block"> 
-          <input id="search-field" name="search" class="form-control search-form" placeholder="Search", value="<%=params[:search]%>" > 
-        <button type="submit" class="btn btn-default">Submit</button> 
-        </div> 
-      </form>
-  </div>
     
     <%=render partial: 'partials/navbar'%>
 
@@ -45,7 +36,22 @@
       <%=render partial: 'partials/header', locals: {bars: @bars, width: "large"}%>
     </div>
 
-    <div class="shadow main-block container border ">
+    <div class="gradient shadow main-block container border ">
+
+    <div class="row">
+      <div class="container-fluid">
+      
+        <form id="search-form" class="form-inline search-form" action="<%=post_index_path%>" method="get"> 
+          <div class="form-group border gradient search-block"> 
+            <input id="search-field" class="search-field form-control" name="search" placeholder="Search"
+            value="<%=params[:search]%>" > 
+          <button class="btn btn-default" type="submit">Submit</button> 
+          </div> 
+        </form>
+        <div id="search-fader" class="gradient"><center><%=icon("search")%></center></div>
+      </div>
+    </div>
+
       
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
@@ -54,7 +60,7 @@
           <% elsif alert %>
             <center><div class="alert alert-warning"><%= alert %></div></center>
           <%end%>
-          <br>
+
           <%= yield %>
         </div>
 

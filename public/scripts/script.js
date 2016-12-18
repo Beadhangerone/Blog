@@ -6,6 +6,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#search-fader").click(function(){
-        $("#search-form").slideToggle(70);
+        $("#search-form").slideToggle(700);
     });
 });
