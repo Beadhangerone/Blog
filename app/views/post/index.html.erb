@@ -1,2 +1,2 @@
-<%= render partial: 'partials/posts', locals: {posts: @posts} %>
+<%= render partial: 'partials/posts', locals: {posts: @posts, avatar: true} %>
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
