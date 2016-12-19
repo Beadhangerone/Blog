@@ -27,7 +27,9 @@
 	</center>
 
 	<div id="<%=post.id%>" class="collapse">
-	<div class="arrow-up well-arrow-up hidden-xs"></div>
+	<%if avatar%>
+		<div class="arrow-up well-arrow-up hidden-xs"></div>
+	<%end%>
 		<div class="well well-sm post-well">
 			<%=post.text%>
 		</div>

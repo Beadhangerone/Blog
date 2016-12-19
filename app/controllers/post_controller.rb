@@ -6,19 +6,19 @@ class PostController < ApplicationController
 
   def index
     @header = "all posts"
-    @posts = Post.search(params[:search]).order(created_at: :desc).paginate(:page => params[:page], :per_page => 2)
+    @posts = Post.search(params[:search]).order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
   end
 
   def followings
     @header = "followings' posts"
     followings = Follower.where(follower_id: current_user.id).map(&:user_id)
-    @posts = Post.where(author_id: followings).order(created_at: :desc).paginate(page: params[:page], :per_page => 2)
+    @posts = Post.where(author_id: followings).order(created_at: :desc).paginate(page: params[:page], :per_page => 3)
   end
 
   def liked
-    @header = "liked posts"
-    liked = Like.where(author_id: current_user.id).map(&:post_id)
-    @posts = Post.where(id: liked).order(created_at: :desc).paginate(page: params[:page], :per_page => 2)
+    @header = "liked posts"   
+    liked = Like.where(author_id: current_user.id).order(created_at: :desc).map(&:post_id)
+    @posts = Post.where(id: liked).paginate(page: params[:page], :per_page => 3)
   end
 
   def new
