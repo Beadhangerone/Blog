@@ -1,9 +1,17 @@
 <div class="jumbotron">
-  <h1>The Doodle Blog</h1>
-  <p>It's a simple project for easy bloging</p>
+  <h1 class="hamurz">The doodle bloG</h1>
+  <p>It's a simple solution for those who wants to blog!</p><br>
+  <p>Check some easy tips for a better experience:</p>
+  <ul>
+  	<li>Sign in or sign up to use all features</li>
+  	<li>Use the search to find posts</li>
+  	<li>Use toggles to collapse the post's text without openning it</li>
+  </ul><br>
   <%if user_signed_in?%>
   	<p><a class="btn btn-default btn-lg" href="<%=post_index_path%>" role="button">Get started</a></p>
   <%else%>
   	<p><a class="btn btn-default btn-lg" href="<%=new_user_session_path%>" role="button">Get started</a></p>
   <%end%>
 </div>
+  
+
