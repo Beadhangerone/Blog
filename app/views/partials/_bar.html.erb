@@ -1,4 +1,4 @@
-<%if bars%>
+<%if bars && access%>
 	<ul class="nav right nav-pills">
 		<%bars.each do |key, value|%>
 			<li role="presentation" class="<%=active?([key])%>"><a href="<%=key%>"><%=value%></a></li>

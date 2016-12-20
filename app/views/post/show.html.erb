@@ -13,56 +13,64 @@
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-8">
 		<div class="hidden-xs"><br><br></div>
-		<div class="list-group">
-			<% if @author.id == current_user.id %>
-				<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path($post)%>" data-confirm="Are you sure ?">
-				<%=icon("trash")%> Delete
-				</a>
+		<%if user_signed_in?%>
+			<div class="list-group">
+				<% if @author.id == current_user.id %>
+					<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path($post)%>" data-confirm="Are you sure ?">
+					<%=icon("trash")%> Delete
+					</a>
 
-				<a class="list-group-item" href="<%=edit_post_path($post)%>">
-					<%=icon("pencil")%> Edit
-				</a>
-				
-			<%else%>
-				<% if @likers.include?(current_user.username) %>
-					<a class="list-group-item" rel="nofollow" data-method="delete" 
-					href="<%=unlike_post_path($post)%>"><%=icon("thumbs-down")%> Unlike</a>
+					<a class="list-group-item" href="<%=edit_post_path($post)%>">
+						<%=icon("pencil")%> Edit
+					</a>
+					
+				<%else%>
+					<% if @likers.include?(current_user.username) %>
+						<a class="list-group-item" rel="nofollow" data-method="delete" 
+						href="<%=unlike_post_path($post)%>"><%=icon("thumbs-down")%> Unlike</a>
 
-				<% else %>
-					<a class="list-group-item" data-method="post" 
-					href="<%=like_post_path($post)%>"> <%=icon("thumbs-up")%> Like this post</a>
+					<% else %>
+						<a class="list-group-item" data-method="post" 
+						href="<%=like_post_path($post)%>"> <%=icon("thumbs-up")%> Like this post</a>
+					<%end%>
 				<%end%>
-			<%end%>
+			</div>
+		<%end%>
+		<center>
+			<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
+				<%=@likers.length%>
+			</a> 
+			people liked it
+		</center>
+	</div>
+</div>
+
+<br><hr>
+
+<%if user_signed_in?%>
+	<div class="row">
+		<div class="col-md-9">
+			<%=  form_for @comment , url: post_comment_index_path($post), method: :post do |f|%>
+
+				<%=render partial: "/partials/errors", locals: {resource: @comment}%>
+
+				<%= f.label :comment%> <%=icon("comment")%>
+				<%= f.text_area :text, class: 'form-control' %>
+				<br>
+				<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
+					<%=icon("ok")%> Add a comment
+				<%end%>
+			<% end %>
 		</div>
-		<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
-			<%=@likers.length%>
-		</a> 
-		people liked it
 	</div>
-</div>
 
-<br><div class="row"><hr>
-	<div class="col-md-9">
-		<%=  form_for @comment , url: post_comment_index_path($post), method: :post do |f|%>
+	<div class="row"><hr>
+		<div class="col-md-9">
 
-			<%=render partial: "/partials/errors", locals: {resource: @comment}%>
+		<%=render partial: "/partials/comments", locals: {comments: @comments}%>
 
-			<%= f.label :comment%> <%=icon("comment")%>
-			<%= f.text_area :text, class: 'form-control' %>
-			<br>
-			<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
-				<%=icon("ok")%> Add a comment
-			<%end%>
-		<% end %>
+		</div>
 	</div>
-</div>
-
-<div class="row"><hr>
-	<div class="col-md-9">
-
-	<%=render partial: "/partials/comments", locals: {comments: @comments}%>
-
-	</div>
-</div>
+<%end%>
 
 
