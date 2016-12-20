@@ -11,7 +11,7 @@
 		Posted by: <b><i><%=link_to_user(@author)%></i></b> on <b><i><%=$post.created_at%></i></b>
 		</p>
 	</div>
-	<div class="col-md-3 col-sm-3 col-xs-8">
+	<div class="col-md-3 col-sm-3 col-xs-12">
 		<div class="hidden-xs"><br><br></div>
 		<%if user_signed_in?%>
 			<div class="list-group">
@@ -25,6 +25,7 @@
 					</a>
 					
 				<%else%>
+					<br>
 					<% if @likers.include?(current_user.username) %>
 						<a class="list-group-item" rel="nofollow" data-method="delete" 
 						href="<%=unlike_post_path($post)%>"><%=icon("thumbs-down")%> Unlike</a>

@@ -17,7 +17,7 @@
           <%end%>
         </div>
         <div class="collapse navbar-collapse" id="bars">
-          <%=render partial: 'partials/bar', locals: {bars: bars, access: user_signed_in?} %>
+          <%=render partial: 'partials/bar', locals: {bars: bars, access: @access} %>
         </div>
       <%end%>
 
@@ -27,7 +27,7 @@
             <%= @header %>
           </div>
           <div class="col-xs-6">
-            <%=render partial: 'partials/bar', locals: {bars: bars, access: user_signed_in?} %>
+            <%=render partial: 'partials/bar', locals: {bars: bars, access: @access} %>
           </div>
         </div>
       <%end%>    

@@ -104,6 +104,7 @@ class PostController < ApplicationController
   end
 
   def post_bars
+    @access = user_signed_in?
     @bars = {
       "#{followings_posts_path}" => "Followings' posts",
       "#{liked_posts_path}" => "Liked posts",

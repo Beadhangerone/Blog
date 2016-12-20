@@ -1,28 +1,32 @@
+<%@access = true%>
+<%@bars = {"#{new_user_registration_path}"=>"Haven't an account"}%>
 <%@header = "sign in"%>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label "Username"  %><br />
-    <%= f.text_field :username, autofocus: true, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
+<div class="border">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label "Username"  %><br />
+      <%= f.text_field :username, autofocus: true, class: "form-control" %>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= button_tag(type: 'submit', class: 'btn btn-default') do %>
-        <span class='glyphicon glyphicon-ok'></span> Sign in
-      <%end%>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= button_tag(type: 'submit', class: 'btn btn-default') do %>
+          <span class='glyphicon glyphicon-ok'></span> Sign in
+        <%end%>
+    </div>
+  <% end %>
+</div>
 <!-- 
 <%= render "devise/shared/links" %> -->
