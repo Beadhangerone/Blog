@@ -1,3 +1,8 @@
+<%if user_signed_in?%>
+	<%no_comments_message = "Your comment will be the first"%>
+<%else%>
+	<%no_comments_message = "No comments"%>
+<%end%>
 <%if comments.length > 0%>
 
 	<%comments.each do |comment|%>
@@ -18,5 +23,5 @@
 	</div>	
 	<% end %>
 <%else%>
-	<h5><%= hint('Your comment will be the first')%></h5>
+	<h5><%= hint(no_comments_message)%></h5>
 <%end%>

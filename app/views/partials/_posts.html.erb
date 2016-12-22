@@ -11,13 +11,13 @@
 			<div class="col-md-10">
 				<h2><a href="<%=post_path(post)%>"><%=post.title%></a></h2>
 				<b>Posted by:</b> <%=link_to_user(user_by_id(post.author_id)) %><br>
-				<%=hint("#{post.comments.length} comments")%>
+				<%=hint("#{post.comments.length} comment(s)")%>
 			</div>
 		</div>
 	<%else%>
 		<h2><a href="<%=post_path(post)%>"><%=post.title%></a></h2>
 		<b>Posted by:</b> <%=link_to_user(user_by_id(post.author_id)) %><br>
-		<%=hint("#{post.comments.length} comments")%>
+		<%=hint("#{post.comments.length} comment(s)")%>
 	<%end%>
 
 	<center>
