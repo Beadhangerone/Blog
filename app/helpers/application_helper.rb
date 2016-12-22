@@ -31,6 +31,10 @@ module ApplicationHelper
     end
   end
 
+  def breaklines_on (text)
+    simple_format( text, {}, wrapper_tag: "div" )
+  end
+
 # renderers END
 
   def user_by_id (id)

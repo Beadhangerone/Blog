@@ -4,7 +4,9 @@
 		<div class="well well-lg">
 			<h1><%= $post.title %></h1>
 			<hr>
-			<p><%= $post.text %></p>
+			<p>
+				<%=breaklines_on($post.text)%>
+			</p>
 		</div>
 		<hr>
 		<p>
