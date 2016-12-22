@@ -51,9 +51,6 @@ class PostController < ApplicationController
 
   def destroy
     $post.destroy
-    current_user.amount_of_posts -= 1
-    current_user.save
-
     redirect_to post_index_path
   end
 
