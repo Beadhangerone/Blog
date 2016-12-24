@@ -11,4 +11,12 @@ class CommentController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    if user_signed_in? && comment.author_id == current_user.id
+      comment.destroy
+    end
+    redirect_to post_path($post)
+  end
+
 end
