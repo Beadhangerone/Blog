@@ -1,8 +1,12 @@
-<% $followers.each do |follower|%>
-	<div class="col-xs-6 col-sm-4 col-lg-3">
-		<%=render partial: "partials/avatar", locals: {resource: follower}%>
-		<center>
-			<h3 class="hamurz main-color"><b><%= follower.username.downcase %></b></h3>
-		</center>
-	</div>
+<%if $followers.length > 0%>
+	<% $followers.each do |follower|%>
+		<div class="col-xs-6 col-sm-4 col-lg-3">
+			<%=render partial: "partials/avatar", locals: {resource: follower}%>
+			<center>
+				<h3 class="hamurz main-color"><b><%= follower.username.downcase %></b></h3>
+			</center>
+		</div>
+	<%end%>
+<%else%>
+	<h4><%=hint('No followers here')%></h4>
 <%end%>
