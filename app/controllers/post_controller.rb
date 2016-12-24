@@ -1,7 +1,7 @@
 class PostController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :post_by_params_id, only: [:like, :unlike, :edit, :destroy, :show]
-  before_action :author?, only: [:edit, :destroy]
+  before_action :author?, only: [:edit, :destroy, :update]
   before_action :post_bars, only: [:index, :followings, :liked]
 
   def index
