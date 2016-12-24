@@ -9,34 +9,38 @@
 		<div class="panel panel-default">
 		  <div class="panel-heading my-panel-heading">
 			  	<div class="row">
-				  	<div class="col-xs-1">
-				  			<%=render partial: "partials/avatar", locals: {resource: user_by_id(comment.author_id),
-				  				cls: "img-circle"}%>
+				  	<div class="col-xs-2 col-sm-1">
+				  		<center>
+				  			<%=render partial: "partials/avatar", locals: 
+				  			{resource: user_by_id(comment.author_id), cls: "img-circle"}%>
+		  					<div class="arrow-up"></div>
+				  		</center>
 				  	</div>
-				  	<div class="col-xs-11 comment-header">
-				  		<div class="col-xs-11">
+				  	<div class="col-xs-10 col-sm-11">
+				  		<div class="col-xs-12 comment-header">
 				  			<%= link_to_user(user_by_id(comment.author_id))%> said:
-				  		</div>
 
-					  	<div class="col-xs-1">
-				  			<%if user_signed_in?%>
-					  			<%if comment.author_id == current_user.id%>
-					  				<small class="right">
-							  			<a data-confirm="Are you shure?" rel="nofollow" data-method="delete" 
-							  				href="/post/<%=$post.id%>/comment/<%=comment.id%>" data-confirm="Are you sure ?">
-							  				<%=icon('remove')%>
+						  	<div class="right">
+					  			<%if user_signed_in?%>
+						  			<%if comment.author_id == current_user.id%>
+						  				<small class="right">
+								  			<a data-confirm="Are you shure?" rel="nofollow" 
+								  				data-method="delete" 
+								  				href="/post/<%=$post.id%>/comment/<%=comment.id%>" 
+								  				data-confirm="Are you sure ?">
+								  				<%=icon('remove')%>		
 											</a>
-				  					</small>
+					  					</small>
+									<%end%>
 								<%end%>
-							<%end%>
-						</div>
+							</div>
+				  		</div>
 				  </div>
 				</div>
-		  	<div class="arrow-up comment-arrow-up"></div>
 		  </div>
 		  <p class="content"><%=comment.text%></p>
 
-		  <small class="right">
+			<small class="right">
 				<%=hint(comment.created_at)%>
 			</small>
 		</div>	
