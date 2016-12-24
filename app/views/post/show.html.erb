@@ -56,8 +56,6 @@
 		<div class="col-md-9">
 			<%=  form_for @comment , url: post_comment_index_path($post), method: :post do |f|%>
 
-				<%=render partial: "/partials/errors", locals: {resource: @comment}%>
-
 				<%= f.label :comment%> <%=icon("comment")%>
 				<%= f.text_area :text, class: 'form-control' %>
 				<br>
