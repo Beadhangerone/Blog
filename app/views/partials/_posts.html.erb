@@ -20,13 +20,9 @@
 		<%=hint("#{post.comments.length} comment(s)")%>
 	<%end%>
 
-	<center>
-		<a target="#<%=post.id%>" expanded="false" class="post-text-fader">
-			<%=icon("chevron-down")%>
-	    </a>
-	</center>
 
-	<div id="<%=post.id%>" class="post-text">
+	<div id="<%=post.id%>" class="post-text" expanded="false">
+		<br>
 		<%if avatar%>
 			<div class="arrow-up well-arrow-up hidden-xs"></div>
 		<%end%>
@@ -35,6 +31,11 @@
 		</div>
 	</div>
 
+	<center>
+		<a target="#<%=post.id%>" class="post-text-fader">
+			<%=icon("chevron-down")%>
+	    </a>
+	</center>
     <hr>
 <%end%>
 <%else%>
