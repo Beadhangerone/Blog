@@ -21,15 +21,15 @@
 	<%end%>
 
 	<center>
-		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%=post.id%>" aria-expanded="true" aria-controls="<%=post.id%>">
-		<%=icon("chevron-down")%>
+		<a target="#<%=post.id%>" expanded="false" class="post-text-fader">
+			<%=icon("chevron-down")%>
 	    </a>
 	</center>
 
-	<div id="<%=post.id%>" class="collapse">
-	<%if avatar%>
-		<div class="arrow-up well-arrow-up hidden-xs"></div>
-	<%end%>
+	<div id="<%=post.id%>" class="post-text">
+		<%if avatar%>
+			<div class="arrow-up well-arrow-up hidden-xs"></div>
+		<%end%>
 		<div class="no-mrgn-btm well well-sm post-well">
 			<%=breaklines_on(post.text)%>
 		</div>

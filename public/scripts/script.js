@@ -9,3 +9,11 @@ $(document).ready(function(){
         $("#search-form").slideToggle(700);
     });
 });
+
+$(document).ready(function(){
+    $(".post-text-fader").click(function(){
+    	var target = $($(this).attr("target"))    	
+        target.slideToggle(700);
+    });
+});
+
