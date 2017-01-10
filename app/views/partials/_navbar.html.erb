@@ -51,11 +51,11 @@
             </ul>
           </li>
         <%else%>
-          <li>
+          <li class="<%=active?([new_user_session_path])%>">
             <a href="<%=new_user_session_path%>">
             <%=icon("log-in")%> Sign in</a>                   
           </li>
-          <li>
+          <li class="<%=active?([new_user_registration_path])%>">
             <a href="<%=new_user_registration_path%>">
             <%=icon("check")%> Sign up</a>
           </li>
