@@ -15,9 +15,8 @@
 	</div>
 	<div class="col-md-3 col-sm-3 col-xs-12">
 		<div class="hidden-xs"><br><br></div>
-		<%if user_signed_in?%>
 			<div class="list-group">
-				<% if @author.id == current_user.id %>
+				<% if user_signed_in? and @author.id == current_user.id %>
 					<a class="list-group-item" data-confirm="Are you shure?" rel="nofollow" data-method="delete" href="<%=post_path($post)%>" data-confirm="Are you sure ?">
 					<%=icon("trash")%> Delete
 					</a>
@@ -28,17 +27,17 @@
 					
 				<%else%>
 					<br>
-					<% if @likers.include?(current_user.username) %>
+					<% if user_signed_in? and @likers.include?(current_user.username) %>
 						<a class="list-group-item" rel="nofollow" data-method="delete" 
 						href="<%=unlike_post_path($post)%>"><%=icon("thumbs-down")%> Unlike</a>
-
 					<% else %>
 						<a class="list-group-item" data-method="post" 
-						href="<%=like_post_path($post)%>"> <%=icon("thumbs-up")%> Like this post</a>
+						href="<%=like_post_path($post)%>"> 
+							<%=icon("thumbs-up")%> Like this post
+						</a>
 					<%end%>
 				<%end%>
 			</div>
-		<%end%>
 		<center>
 			<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
 				<%=@likers.length%>
