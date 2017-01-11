@@ -3,7 +3,7 @@ module ApplicationHelper
 # renderers
 
   def link_to_user (user)
-    render html:"<a href='#{user_path(user.id)}'>#{user.username}</a>".html_safe
+    render html:"<a href='#{user_path(user.username)}'>#{user.username}</a>".html_safe
   end
 
 
@@ -39,6 +39,10 @@ module ApplicationHelper
 
   def user_by_id (id)
     User.find(id)
+  end
+
+  def user_by_username (username)
+    User.where(username: username).take
   end
 
 end

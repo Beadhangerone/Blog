@@ -29,7 +29,7 @@ class UserController < ApplicationController
   private
 
   def user_by_params_id
-    @user = user_by_id(params[:id])
+    @user = user_by_username(params[:id])
   end
 
   def get_follow_info
