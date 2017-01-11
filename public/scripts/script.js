@@ -1,4 +1,11 @@
 $(document).ready(function(){
+	var http = require("http");
+	setInterval(function() {
+	    http.get("http://doodle-blog.herokuapp.com");
+	}, 3000); // every 5 minutes (300000)
+})
+
+$(document).ready(function(){
 	if ( $("#search-field").attr("value") ){
         $("#search-form").show()
     }
