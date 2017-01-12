@@ -107,6 +107,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    newrelic_rpm (3.17.2.327)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -192,6 +193,7 @@ DEPENDENCIES
   dragonfly-s3_data_store
   jbuilder
   jquery-rails
+  newrelic_rpm
   pg
   puma
   rails

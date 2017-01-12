@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'newrelic_rpm'
 gem 'devise'
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'

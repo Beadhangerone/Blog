@@ -1,10 +1,9 @@
-$(document).ready(function(){
-	setInterval(function() {
-	    var xmlHttp = new XMLHttpRequest()
-	    xmlHttp.open( "GET", 'http://doodle-blog.herokuapp.com', true )
-	    xmlHttp.send( null )
-	}, 30000)
-})
+
+// setInterval(function() {
+//     var xmlHttp = new XMLHttpRequest()
+//     xmlHttp.open( "GET", 'http://doodle-blog.herokuapp.com', true )
+//     xmlHttp.send( null )
+// }, 30000)
 
 $(document).ready(function(){
 	if ( $("#search-field").attr("value") ){
