@@ -1,8 +1,9 @@
 $(document).ready(function(){
-	var http = require("http");
 	setInterval(function() {
-	    http.get("http://doodle-blog.herokuapp.com");
-	}, 3000); // every 5 minutes (300000)
+	    var xmlHttp = new XMLHttpRequest()
+	    xmlHttp.open( "GET", 'http://doodle-blog.herokuapp.com', true )
+	    xmlHttp.send( null )
+	}, 30000)
 })
 
 $(document).ready(function(){
