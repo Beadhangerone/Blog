@@ -1,7 +1,7 @@
 <%size = "206x206" unless size%>
 <%cls =  '' unless cls%>
-<%if resource.avatar%>
-	<%= link_to image_tag(resource.avatar.image.thumb("#{size}#").url, class: "img-thumbnail #{cls}"), 
+<%if not resource.avatar.file.nil?%>
+	<%= link_to image_tag(resource.avatar, class: "img-thumbnail #{cls}"), 
 	user_path(resource.username)%>
 <%else%>
 	<%= link_to image_tag("/no-avatar.png", class: "img-thumbnail #{cls}"), 

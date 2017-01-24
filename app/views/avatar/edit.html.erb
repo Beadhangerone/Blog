@@ -1,0 +1,12 @@
+<div class="border">
+	<%= form_for $user, url: avatar_save_path($user), method: :put  do |f| %>
+
+		<%= f.label :avatar %>
+		<%= f.file_field :avatar %><br>
+
+		<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
+	      <%=icon("ok")%> Upload
+	    <%end%>
+
+	<% end %>
+</div>

@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   get '/profile/followings' => 'profile#followings', as: 'profile_followings'
 
   get '/settings' => 'home#settings', as: 'settings'
-  get '/settings/avatar' => 'avatar#new', as: 'new_avatar'
-  post '/settings/avatar/create' => 'avatar#create', as: 'avatar_create'
+
+  get '/settings/avatar' => 'avatar#edit', as: 'avatar'
+  put 'settings/avatar/save' => 'avatar#save', as: 'avatar_save'
+  # get '/settings/avatar' => 'avatar#new', as: 'new_avatar'
+  # post '/settings/avatar/create' => 'avatar#create', as: 'avatar_create'
 
   get '/user/:id/followers' => 'user#followers', as: 'user_followers'
   get '/user/:id/followings' => 'user#followings', as: 'user_followings'

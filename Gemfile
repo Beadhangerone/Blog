@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'newrelic_rpm'
 gem 'devise'
-gem 'dragonfly'
-gem 'dragonfly-s3_data_store'
+
+gem 'carrierwave'
+gem 'carrierwave-dropbox'
 
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
