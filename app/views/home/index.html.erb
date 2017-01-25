@@ -7,6 +7,20 @@
   	<li>Use the search to find posts</li>
   	<li>Use toggles to collapse the post's text without openning it</li>
   </ul><br>
+
+  <div class="panel news-panel">
+    <div class="panel-heading">
+      <h3 class="hamurz" style="margin-top: 4px; margin-bottom: 0;">what's new</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li>User's avatars will be saved to dropbox now, not to hold heroku's space</li>
+        <li>Newrelic-apm gem implemented to collect stats and to hold the app awake by punching it every 5 minutes</li>
+        <li>Little bugs fixed</li>
+      </ul>
+    </div>
+  </div>
+
   <%if user_signed_in?%>
   	<p><a class="btn btn-default btn-lg" href="<%=post_index_path%>" role="button">Get started</a></p>
   <%else%>

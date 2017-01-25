@@ -1,7 +1,7 @@
 <div class="col-md-3 col-sm-4 col-xs-12">
 	<div class="panel panel-default">
 	  	<div class="panel-heading">
-		  	<a href="<%=user_followers_path(resource)%>">
+		  	<a href="<%=user_followers_path(resource.username)%>">
 			    <span class="panel-title">Followers </span>
 			    <span class="badge"><%=followers.length%></span>
 			</a>
@@ -19,7 +19,7 @@
 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	  	<a href="<%=user_followings_path(resource)%>">
+	  	<a href="<%=user_followings_path(resource.username)%>">
 		    <span class="panel-title">Followings </span>
 		    <span class="badge"><%=followings.length%></span>
 		</a>

@@ -55,6 +55,18 @@ h3{
 			margin-bottom: 0;
 		}
 	/*margins END*/
+
+	/*news panel*/
+		.news-panel{
+			border-color: #4585BD;
+		}
+
+		.news-panel > .panel-heading{
+			border-bottom: 1px solid #4585BD;;
+			background: #D6E3EE;
+		}
+	/*news panel END*/
+
 	.img-thumbnail{
 		padding: 0;
 	}
@@ -193,27 +205,27 @@ h3{
 /*END custom*/
 
 /*Fonts*/
-@font-face {
-	font-family: Hamurz;
-	src: url(/fonts/Hamurz.ttf);
-}
+	@font-face {
+		font-family: Hamurz;
+		src: url(/fonts/Hamurz.ttf);
+	}
 
-.hamurz{
-	font-family: Hamurz;
-}
+	.hamurz{
+		font-family: Hamurz;
+	}
 
-.main-color{
-	color: #7f878e;
-}
-.hint {
-	color: #bfbfbf;
-}
+	.main-color{
+		color: #7f878e;
+	}
+	.hint {
+		color: #bfbfbf;
+	}
 
-.header-text{
-	padding-top: 6px;
-	font-size: 1.881em;
-	vertical-align: middle;
-}
+	.header-text{
+		padding-top: 6px;
+		font-size: 1.881em;
+		vertical-align: middle;
+	}
 /*END Fonts*/
 
 /*Blocks*/
@@ -245,49 +257,49 @@ h3{
 		}
 	/*search END*/
 
-.post-text-fader{
-	cursor: pointer;
-}
+	.post-text-fader{
+		cursor: pointer;
+	}
 
-.post-text{
-	display: none;
-}
+	.post-text{
+		display: none;
+	}
 
-.my-panel-heading{
-	padding-top: 3px;
-	padding-bottom: 0;
-	border-bottom: 0;
-}
+	.my-panel-heading{
+		padding-top: 3px;
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
 
-.logo {
-    float: left;
-    height: 50px;
-    padding: 5px 5px;
-    font-size: 18px;
-    line-height: 20px;
-}
+	.logo {
+	    float: left;
+	    height: 50px;
+	    padding: 5px 5px;
+	    font-size: 18px;
+	    line-height: 20px;
+	}
 
-.main-block {
-	padding-top: 0;
-	min-height: 650px;
-}
+	.main-block {
+		padding-top: 0;
+		min-height: 650px;
+	}
 
-.main-content{
-	padding: 0;
-	padding-top: 17px;
-}
-.header-bar {
-    position: relative;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-bottom: none;
-}
-.header-block{
+	.main-content{
+		padding: 0;
+		padding-top: 17px;
+	}
+	.header-bar {
+	    position: relative;
+	    margin-bottom: 20px;
+	    border: 1px solid transparent;
+	    border-bottom: none;
+	}
+	.header-block{
 
-	padding-left: 4rem;
-	background-color: white;
-	margin-bottom: 2em;
-}
+		padding-left: 4rem;
+		background-color: white;
+		margin-bottom: 2em;
+	}
 /*END Blocks*/
 
 /*Media queries*/
