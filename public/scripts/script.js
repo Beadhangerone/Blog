@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#search-fader").click(function(){
-        $("#search-form").slideToggle(700);
+        $("#search-form").slideToggle(600);
     });
 });
 
