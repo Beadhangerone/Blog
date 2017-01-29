@@ -156,6 +156,8 @@ h3{
 		/*navbar*/
 			.navbar{margin-bottom: 15px;}
 
+			.navbar-default .navbar-nav>li.dropdown>a:hover{border-bottom: 0px;}
+
 			.navbar-default .navbar-nav>.active>a{
 				background-image: none;
 				-webkit-box-shadow: none;
