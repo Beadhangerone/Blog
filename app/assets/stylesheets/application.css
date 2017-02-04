@@ -322,6 +322,7 @@ h3{
 
 	.main-block {
 		padding-top: 0;
+		padding-bottom: 30px;
 		min-height: 650px;
 	}
 
