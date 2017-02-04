@@ -10,6 +10,10 @@ class User < ApplicationRecord
     false
   end
 
+  def email_changed?
+    false
+  end
+
   # attr_accessor :login
 
   # def self.find_for_database_authentication(warden_conditions)
