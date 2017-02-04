@@ -2,7 +2,7 @@
 <%@bars = {"#{new_user_registration_path}"=>"Haven't an account"}%>
 <%@header = "sign in"%>
 
-<div class="border">
+<div class="border content">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label "Username"  %><br />

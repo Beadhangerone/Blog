@@ -3,7 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render partial: "partials/errors", locals: {resource: resource} %>
-  <div class="border">
+  <div class="border content">
     <div class="field">
       <%= f.label :username %><br />
       <%= f.text_field :username, autofocus: true, class: "form-control" %>
