@@ -1,18 +1,19 @@
 <div class="row">
 	<div class="col-md-3 col-sm-4 col-xs-5">
-		<%=render partial: "partials/avatar", locals: {resource: @user, size: '380x400'}%>
-		<%if not @user.avatar%>
-		<br><br>
-		<%= hint("You haven't an avatar")%>
-		<div class="list-group">
-			<a class="list-group-item" href="<%=new_avatar_path%>"><%=icon('picture')%> Upload one
-			</a>
-		</div>
+		<%=render partial: "partials/avatar", locals: {resource: @user}%>
+		<%if @user.avatar.file.nil?%>
+			<center class="border content upload-avatar-block">
+				<%= hint("You haven't an avatar")%>				
+				<div class="list-group">
+					<a class="list-group-item" href="<%=avatar_path%>"><%=icon('picture')%> Upload one
+					</a>
+				</div>
+			</center>
 	<%end%>
 	</div>
 	
 	<div class="col-md-8 col-sm-8 col-xs-7">	
-		<div class="border content">
+		<div class="border content info-block">
 			<h2 class="hamurz main-color"><b><%= current_user.username.downcase %></b></h2>
 			<hr>
 			<p><b>Amount of posts: </b><%= @posts.length %></p>

@@ -123,13 +123,10 @@ h3{
 	.border {
 		border: 1px solid #e7e7e7;
 		border-radius: 4px;
-		padding: 1rem;
 	}
 
 	.content {
-		padding-left: 1em;
-		padding-top: 5px;
-		padding-bottom: 5px;
+		padding: 5px 10px;
 	}
 
 	.wall-papper {
@@ -228,6 +225,7 @@ h3{
 	}
 	.hint {
 		color: #bfbfbf;
+		margin-bottom: 5px;
 	}
 
 	.header-text{
@@ -282,6 +280,23 @@ h3{
 		}
 
 	/*comment-panel END*/
+
+	/*profile*/
+	.upload-avatar-block{
+		margin-top: 10px;
+	}
+	.upload-avatar-block>.list-group{
+		margin-bottom: 0;
+	}
+	.upload-avatar-block>.list-group>.list-group-item{
+		padding: 3px 0px;
+	}	
+	.info-block{
+		padding-bottom: 13px;
+	}
+
+
+	/*profile END*/
 
 	.post-text-fader{
 		cursor: pointer;
