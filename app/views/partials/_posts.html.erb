@@ -5,8 +5,7 @@
 	<%if avatar%>
 		<div class="row">
 			<div class="col-md-2 col-sm-3 hidden-xs">
-				<%=render partial: "partials/avatar", locals: {resource: user_by_id(post.author_id), 
-					cls: "img-circle"}%>
+				<%=render partial: "partials/avatar", locals: {resource: user_by_id(post.author_id), cls: "img-circle"}%>
 			</div>
 			<div class="col-md-10">
 				<h2><a href="<%=post_path(post)%>"><%=post.title%></a></h2>

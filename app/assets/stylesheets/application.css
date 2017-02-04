@@ -22,6 +22,14 @@ h3{
 
 
 /*custom*/
+
+	/*thumbnails*/
+		.thumbnail-sm{
+			height: 40px;
+			width: auto;
+		}
+	/*thumbnails END*/
+
 	/*margins*/
 		.mrgn-top-15{
 			margin-top: 15px;
@@ -76,11 +84,6 @@ h3{
 		box-shadow: 5px 5px 5px #888888;
 	}
 
-	.comment-header{
-		vertical-align: middle;
-		line-height: 2.7em;
-	}
-
 	.arrow-up {
 	  width: 0; 
 	  height: 0; 
@@ -125,7 +128,8 @@ h3{
 
 	.content {
 		padding-left: 1em;
-		padding-top: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 
 	.wall-papper {
@@ -262,6 +266,23 @@ h3{
 		}
 	/*search END*/
 
+
+	/*comment-panel*/
+		.comment-panel>.panel-heading{
+			padding: 3px 10px; 
+			padding-bottom: 0px;
+		}
+		.comment-header{
+			margin-top: 10px;
+			padding-left: 0px;
+		}
+		.comment-arrow-up{
+			margin-left: 17px;
+			margin-top: 3px;
+		}
+
+	/*comment-panel END*/
+
 	.post-text-fader{
 		cursor: pointer;
 	}
@@ -272,13 +293,8 @@ h3{
 
 	.panel-heading{
 		padding-top: 3px;
-		padding-bottom: 0;
+		padding-bottom: 3px;
 		border-bottom: 0;
-	}
-
-	.comment-arrow-up{
-		margin-left: 20px;
-		margin-top: 5px;
 	}
 
 	.logo {

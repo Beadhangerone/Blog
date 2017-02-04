@@ -6,13 +6,13 @@
 <%if comments.length > 0%>
 
 	<%comments.each do |comment|%>
-		<div class="panel panel-default">
+		<div class="panel panel-default comment-panel">
 		  <div class="panel-heading">
 		  	<div class="row">
 			  	<div class="col-xs-2 col-sm-1">
 			  		<center>
 			  			<%=render partial: "partials/avatar", locals: 
-			  			{resource: user_by_id(comment.author_id), cls: "img-circle"}%>
+			  			{resource: user_by_id(comment.author_id), cls: "img-circle thumbnail-sm"}%>
 			  		</center>
 					<div class="arrow-up comment-arrow-up"></div>
 			  	</div>
@@ -38,7 +38,7 @@
 			  	</div>
 			</div>
 		  </div>
-		  	<p class="content"><%=comment.text%></p>
+		  	<div class="content"><%=breaklines_on(comment.text)%></div>
 
 			<small class="right">
 				<%=hint(comment.created_at)%>
