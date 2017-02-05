@@ -189,12 +189,12 @@ h3{
 
 	/*active links*/
 
-	.nav>li>a{
-		padding-bottom: 12px;
-	}
+		.nav>li>a{
+			padding-bottom: 12px;
+		}
 
 		/*navbar*/
-			.navbar{margin-bottom: 15px;}
+			.navbar{margin-bottom: 15px; border: none;}
 
 			.navbar-default .navbar-nav>li.dropdown>a:hover{border-bottom: 0px;}
 
@@ -298,7 +298,7 @@ h3{
 		.search-field{
 			float: left;
 			display: inline;
-			width: auto;
+			width: 73%;
 		}
 	/*search END*/
 

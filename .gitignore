@@ -20,5 +20,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-#Ignore dragonfly files
-/public/system/dragonfly/*
+#ignore uploads
+/public/uploads

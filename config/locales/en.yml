@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      extension_white_list_error: "shouldn't be a %{extension} file, allowed types: %{allowed_types}"

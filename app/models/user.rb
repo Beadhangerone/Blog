@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :followers
   
   mount_uploader :avatar, AvatarUploader
+  validates_size_of :avatar, maximum: 1.megabytes, message: "should be less than 1Mbit" 
 
   def email_required?
     false
