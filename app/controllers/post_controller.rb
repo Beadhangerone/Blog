@@ -61,6 +61,7 @@ class PostController < ApplicationController
   def update
     $post.title = params[:post][:title]
     $post.text = params[:post][:text]
+    $post.cover = params[:post][:cover]
     if $post.save
       flash[:notice] = "Edited successfully."
       redirect_to post_path($post)
@@ -87,7 +88,7 @@ class PostController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:title, :text, :cover)
   end
 
   def author?

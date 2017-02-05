@@ -4,9 +4,12 @@
 
 	<%= f.label :title %>
 	<%= f.text_field :title, class: 'form-control' %>
-
+	<br>
 	<%= f.label :text %>
 	<%= f.text_area :text, class: 'form-control' %>
+	<br>
+	<%= f.label :cover %>
+	<%= f.file_field :cover%>
 
 	<br>
 	<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
