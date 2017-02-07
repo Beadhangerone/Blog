@@ -5,9 +5,11 @@ class AvatarController < ApplicationController
   end
     
   def save
-    $user.avatar = params[:user][:avatar]
+    $user.avatar = params[:user][:avatar] if params[:user]
     if $user.save
       redirect_to profile_path
+    else
+    	render action: 'edit'
     end
   end
 

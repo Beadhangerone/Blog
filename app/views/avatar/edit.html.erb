@@ -1,3 +1,4 @@
+<%= render partial: "/partials/errors", locals: {resource: $user}%>
 <div class="border content">
 	<%= form_for $user, url: avatar_save_path($user), method: :put  do |f| %>
 
