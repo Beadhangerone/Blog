@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/settings' => 'home#settings', as: 'settings'
 
   get '/settings/avatar' => 'avatar#edit', as: 'avatar'
-  put 'settings/avatar/save' => 'avatar#save', as: 'avatar_save'
+  put 'settings/avatar/save/:id' => 'avatar#save', as: 'avatar_save'
   # get '/settings/avatar' => 'avatar#new', as: 'new_avatar'
   # post '/settings/avatar/create' => 'avatar#create', as: 'avatar_create'
 
