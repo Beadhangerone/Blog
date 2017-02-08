@@ -1,10 +1,4 @@
 
-// setInterval(function() {
-//     var xmlHttp = new XMLHttpRequest()
-//     xmlHttp.open( "GET", 'http://doodle-blog.herokuapp.com', true )
-//     xmlHttp.send( null )
-// }, 30000)
-
 $(document).ready(function(){
 	if ( $("#search-field").attr("value") ){
         $("#search-form").show()
@@ -34,9 +28,7 @@ $(document).ready(function(){
 		}
 
 		setTimeout(change_chevron, 750)
-        target.slideToggle(700);
-
-
+      target.slideToggle(700);
     });
 });
 

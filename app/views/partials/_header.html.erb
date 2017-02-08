@@ -1,9 +1,7 @@
 <%if @header%>
   <nav class="shadow container border header-bar navbar-default">
-    <div class="container-fluid">
 
       <%if width == "small"%>
-        <div class="row">
           <div class="col-xs-9 hamurz main-color header-text">
             <%= @header %>
           </div>
@@ -15,22 +13,18 @@
               </button>
             </div>
           <%end%>
-        </div>
         <div class="collapse navbar-collapse" id="bars">
           <%=render partial: 'partials/bar', locals: {bars: bars, access: @access} %>
         </div>
       <%end%>
 
       <%if width == "large"%>
-        <div class="row">
           <div class="col-xs-6 hamurz main-color header-text">
             <%= @header %>
           </div>
           <div class="col-xs-6">
             <%=render partial: 'partials/bar', locals: {bars: bars, access: @access} %>
           </div>
-        </div>
-      <%end%>    
-    </div>
+      <%end%>
   </nav>
 <%end%>
