@@ -76,12 +76,13 @@ h3{
 	/*news panel END*/
 
 	/*post*/
+		.post{padding: 3.5% 2%}
+
 		.post-block>.border{
 			padding: 10px 5px;
 		}
-		.post-content {
+		.content {
 			margin: 0;
-			margin-bottom: 10px;
 		}
 		.post>div.well{
 			background: transparent;
@@ -89,7 +90,7 @@ h3{
 
 		.post-title{
 			margin-top: -5px;
-			margin-bottom: 20px;
+			margin-bottom: 3%;
 		}
 
 		.post-info{}
@@ -103,7 +104,7 @@ h3{
 
 		.post-text>.arrow-up {
 			margin-top: 10px;
-			margin-left: 65px;
+			margin-left: 73px;
 			border-bottom: 6px solid #ddd;
 		}
 
@@ -121,8 +122,7 @@ h3{
 		}
 
 		.post-cover-img{
-/*			margin: auto -24px;*/
-			margin-bottom: 30px;
+			margin-bottom: 6%;
 		}
 		.cover{
 			border-radius: 4px;
