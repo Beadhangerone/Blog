@@ -6,12 +6,12 @@
 			<br><br>
 			<%if $followers.include?(current_user)%>
 				<div class="list-group">
-					<a class="list-group-item" rel="nofollow" data-method="delete" href="<%=unfollow_path(@user)%>"><%=icon("minus")%> Unfollow
+					<a class="list-group-item" rel="nofollow" data-method="delete" href="<%=unfollow_path(@user.username)%>"><%=icon("minus")%> Unfollow
 					</a>
 				</div>
 			<%else%>
 				<div class="list-group">
-					<a class="list-group-item" rel="nofollow" data-method="post" href="<%=follow_path(@user)%>"><%=icon("plus")%> Follow</a>
+					<a class="list-group-item" rel="nofollow" data-method="post" href="<%=follow_path(@user.username)%>"><%=icon("plus")%> Follow</a>
 				</div>
 			<%end%>
 		<%end%>

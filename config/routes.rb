@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   
 
-  post '/user/:id/friend-up' =>"user#follow", as: 'follow'
-  delete '/user/:id/unfollow' =>"user#unfollow", as: 'unfollow'
   
   get '/profile' => 'profile#show', as: 'profile'
   get '/profile/followers' => 'profile#followers', as: 'profile_followers'
@@ -21,6 +19,8 @@ Rails.application.routes.draw do
   get '/user/:id/followers' => 'user#followers', as: 'user_followers'
   get '/user/:id/followings' => 'user#followings', as: 'user_followings'
   resources :user, :except => [:new, :create, :index]
+  post '/user/:id/friend-up' =>"user#follow", as: 'follow'
+  delete '/user/:id/unfollow' =>"user#unfollow", as: 'unfollow'
 
   get 'post/followings' => 'post#followings', as: 'followings_posts'
   get 'post/liked' => 'post#liked', as: 'liked_posts'

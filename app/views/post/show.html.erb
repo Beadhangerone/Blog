@@ -16,8 +16,8 @@
 		</div>
 		<div class="col-sm-3 col-xs-12 post-info">
 				<div class="border well-sm credits">
-					<%=icon('user')%> Author: <b><i><%=link_to_user(@author)%></i></b><br>
-					<%=icon('time')%> Created at: <b><i><%=$post.created_at%></i></b>
+					<%=icon('user')%> <b>Author: </b><i><%=link_to_user(@author)%></i><br>
+					<%=icon('time')%> <b>Created at: </b><i><%=$post.created_at%></i>
 				</div>
 				<div class="list-group actions">
 					<% if user_signed_in? and @author.id == current_user.id %>

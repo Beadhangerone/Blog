@@ -18,12 +18,12 @@ class UserController < ApplicationController
 
   def follow
     @user.followers.create(follower_id: current_user.id)
-    redirect_to (user_path(@user))
+    redirect_to (user_path(@user.username))
   end
 
   def unfollow
     @user.followers.where(follower_id: current_user.id).take.delete
-    redirect_to (user_path(@user))
+    redirect_to (user_path(@user.username))
   end
 
   private
