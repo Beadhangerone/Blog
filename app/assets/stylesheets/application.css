@@ -13,10 +13,15 @@ h1{
 
 h2{
 	font-size: 2em;
+	margin: 0;
 }
 
 h3{
 	font-size: 1.8em;
+}
+
+hr{
+	margin: 1.6% 0px;
 }
 /*tags END*/
 
@@ -72,6 +77,9 @@ h3{
 		.news-panel > .panel-heading{
 			border-bottom: 1px solid #4585BD;;
 			background: #D6E3EE;
+		}
+		.panel-heading>.hamurz{
+			margin: 0;
 		}
 	/*news panel END*/
 
@@ -135,6 +143,7 @@ h3{
 
 	.img-thumbnail{
 		padding: 0;
+		width: 100%;
 	}
 
 	.shadow{
@@ -210,6 +219,8 @@ h3{
 		}
 
 		/*navbar*/
+			.navbar-header>.hamurz{padding: 15px;}
+
 			.navbar{margin-bottom: 15px; border: none;}
 
 			.navbar-default .navbar-nav>li.dropdown>a:hover{border-bottom: 0px;}
@@ -272,6 +283,7 @@ h3{
 
 	.hamurz{
 		font-family: Hamurz;
+		padding-top: 7px; 
 	}
 
 	.main-color{
@@ -328,8 +340,12 @@ h3{
 	/*comment-panel END*/
 
 	/*profile*/
+	.avatar{
+		margin-bottom: 10px;
+	}
+
 	.upload-avatar-block{
-		margin-top: 10px;
+		margin: 10px 0px;
 	}
 	.upload-avatar-block>.list-group{
 		margin-bottom: 0;
