@@ -84,8 +84,14 @@ hr{
 	/*news panel END*/
 
 	/*post*/
-		.post-list-info{
-			margin-top: 4.5%;
+		.post-list>.avatar>center>a>img{
+			max-height: 120px;
+			width: auto;
+			margin: auto;
+			margin-left: 20%;
+		}
+		.post-list>.info{
+			margin-top: 1.7%;
 		}
 
 		.post{padding: 3.5% 2%}
@@ -115,8 +121,7 @@ hr{
 		}
 
 		.post-text>.arrow-up {
-			margin-top: 10px;
-			margin-left: 73px;
+			margin-left: 90px;
 			border-bottom: 6px solid #ddd;
 		}
 
