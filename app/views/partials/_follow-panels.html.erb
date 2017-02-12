@@ -1,41 +1,35 @@
-<div class="col-md-3 col-sm-4 col-xs-12">
-	<div class="panel panel-default">
-	  	<div class="panel-heading">
-		  	<a href="<%=user_followers_path(resource.username)%>">
-			    <span class="panel-title">Followers </span>
-			    <span class="badge"><%=followers.length%></span>
-			</a>
-	  	</div>
-	  	<div class="panel-body">
-			<%if followers.length > 0%>
-				<% followers.each do |follower| %>
-					<%= link_to_user (follower) %><br>
-				<%end%>
-			<%else%>
-				<%=hint("No followers yet")%>
-			<%end%>				
-		</div>
-	</div><hr>
-
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-	  	<a href="<%=user_followings_path(resource.username)%>">
-		    <span class="panel-title">Followings </span>
-		    <span class="badge"><%=followings.length%></span>
+<div class="panel panel-default">
+  	<div class="panel-heading">
+	  	<a href="<%=user_followers_path(resource.username)%>">
+		    <span class="panel-title">Followers </span>
+		    <span class="badge"><%=followers.length%></span>
 		</a>
-	  </div>
-	  <div class="panel-body">
-			<%if followings.length > 0%>
-				<% followings.each do |following| %>
-					<%= link_to_user (following) %><br>
-				<%end%>
-			<%else%>
-				<%=hint("No followings yet")%>
-			<%end%>				
-		</div>
+  	</div>
+  	<div class="panel-body">
+		<%if followers.length > 0%>
+			<% followers.each do |follower| %>
+				<%= link_to_user (follower) %><br>
+			<%end%>
+		<%else%>
+			<%=hint("No followers yet")%>
+		<%end%>				
 	</div>
-</div>
+</div><hr>
 
-<div class="visible-xs row">
-	<div class="col-xs-12"><br><br></div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<a href="<%=user_followings_path(resource.username)%>">
+	    <span class="panel-title">Followings </span>
+	    <span class="badge"><%=followings.length%></span>
+	</a>
+  </div>
+  <div class="panel-body">
+		<%if followings.length > 0%>
+			<% followings.each do |following| %>
+				<%= link_to_user (following) %><br>
+			<%end%>
+		<%else%>
+			<%=hint("No followings yet")%>
+		<%end%>				
+	</div>
 </div>

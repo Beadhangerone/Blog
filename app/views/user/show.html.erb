@@ -1,6 +1,6 @@
 
 <div class="row">
-	<div class="col-md-4 col-sm-5 col-xs-12">
+	<div class="col-md-3 col-sm-5 col-xs-12">
 		<center class='avatar'>
 			<%=render partial: "partials/avatar", locals: {resource: @user, size: '380x400'}%>
 		</center>
@@ -18,7 +18,7 @@
 		<%end%>
 	</div>
 
-	<div class="col-md-8 col-sm-7 col-xs-12">
+	<div class="col-md-9 col-sm-7 col-xs-12">
 		<div class="border content">
 			<h2 class="hamurz main-color"><b><%= @user.username.downcase %></b></h2>
 			<hr>
@@ -29,11 +29,12 @@
 </div>
 <hr>
 <div class="row">
+	<div class="col-md-3 col-sm-5 col-xs-12">
 
-<%=render partial: 'partials/follow-panels', 
-	locals: {followers: $followers, followings: $followings, resource: @user}%>
-
-	<div class="col-md-8 col-sm-8 col-xs-12">
+		<%=render partial: 'partials/follow-panels', 
+		locals: {followers: $followers, followings: $followings, resource: @user}%>
+	</div>
+	<div class="col-md-9 col-sm-7 col-xs-12">
 
 		<div class="panel panel-default">
 		  <div class="panel-heading">

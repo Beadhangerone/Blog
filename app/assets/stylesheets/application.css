@@ -144,7 +144,7 @@ hr{
 	.img-thumbnail{
 		padding: 0;
 	}
-	.avatar>.img-thumbnail{
+	.avatar>a>.img-thumbnail{
 		width: 100%;
 	}
 
