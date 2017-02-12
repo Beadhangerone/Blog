@@ -28,19 +28,22 @@
 </div>
 <hr>
 <div class="row">
+	<div class="col-md-3 col-sm-5 col-xs-12">
 
-<%=render partial: 'partials/follow-panels', 
-	locals: {followers: $followers, followings: $followings, resource: @user}%>
+		<%=render partial: 'partials/follow-panels', 
+		locals: {followers: $followers, followings: $followings, resource: @user}%>
+	</div>
+	<div class="col-md-9 col-sm-7 col-xs-12">
 
-	<div class="col-md-8 col-sm-8 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		    <span class="panel-title">Your posts </span>
+		    <span class="panel-title"><%=@user.username%>'s posts </span>
 		    <span class="badge"><%=@posts.length%></span>
 		  </div>
 		  <div class="panel-body">
-			<%= render partial: 'partials/posts', locals: {posts: @posts} %>			
-		  </div>
-		</div>
+				<%= render partial: 'partials/posts', locals: {posts: @posts} %>			
+			</div>
+		</div>	
 	</div>
+
 </div>
