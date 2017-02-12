@@ -84,6 +84,10 @@ hr{
 	/*news panel END*/
 
 	/*post*/
+		.post-list-info{
+			margin-top: 4.5%;
+		}
+
 		.post{padding: 3.5% 2%}
 
 		.post-block>.border{

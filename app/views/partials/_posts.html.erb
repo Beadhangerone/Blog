@@ -8,7 +8,8 @@
 				<%=render partial: "partials/avatar", locals: {resource: user_by_id(post.author_id), cls: "img-circle"}%>
 			</div>
 			<div class="col-md-10">
-				<h2><a href="<%=post_path(post)%>"><%=post.title%></a></h2>
+				<h2 class="post-list-info"><a href="<%=post_path(post)%>"><%=post.title%></a>
+				</h2>
 				<b>Posted by:</b> <%=link_to_user(user_by_id(post.author_id)) %><br>
 				<%=hint("#{post.comments.length} comment(s)")%>
 			</div>
