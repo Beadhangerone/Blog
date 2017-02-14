@@ -30,6 +30,12 @@ hr{
 	.btn{
 		padding: 0.3rem 0.5rem;
 	}
+	.form-control:focus{
+		box-shadow: 0 0 8px rgba(127, 135, 142, .7);
+		border: 1px solid silver;
+		border-radius: 6px;
+	}
+
 
 	/*thumbnails*/
 		.thumbnail-sm{
