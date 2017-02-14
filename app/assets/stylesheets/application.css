@@ -84,6 +84,11 @@ hr{
 	/*news panel END*/
 
 	/*post*/
+		.new_post>#post_text, .edit_post>#post_text{
+			height: 400px;
+			max-width: 1115px;
+		}
+
 		.post-list>.avatar>center>a>img{
 			max-height: 120px;
 			width: auto;
