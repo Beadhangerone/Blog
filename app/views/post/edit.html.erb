@@ -6,7 +6,8 @@
 	<%= f.text_field :title, class: 'form-control' %>
 	<br>
 	<%= f.label :text %>
-	<%= f.text_area :text, class: 'form-control' %>
+	<%= f.text_area :text, class: 'form-control post-text-field' %>
+	<%=render partial: "/partials/emoticons"%>
 	<br>
 	<%= f.label :cover %>
 	<%= f.file_field :cover%>

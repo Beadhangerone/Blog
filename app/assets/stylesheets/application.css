@@ -89,6 +89,12 @@ hr{
 			height: 200px;
 			max-width: 1115px;
 		}
+		.post-text-field{
+			font-size: 2rem;
+		}
+		#emotions{
+			font-size: 2rem;
+		}
 		.emotion{
 			cursor: pointer;
 		}
