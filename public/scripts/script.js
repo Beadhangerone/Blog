@@ -32,3 +32,16 @@ $(document).ready(function(){
     });
 });
 
+
+//smileys
+var input = $('#post_text')
+var smiley_btn = $('.emotion')
+
+smiley_btn.click(function() {
+    var caret_pos = $('#post_text')[0].selectionStart;
+    var input_value = input.val();
+    var txt_to_add = $(this).text();
+    input.val(input_value.substring(0, caret_pos) + txt_to_add + input_value.substring(caret_pos) );
+    input.focus();
+    input.selectionStart = input.selectionEnd = caret_pos+1
+});

@@ -84,10 +84,15 @@ hr{
 	/*news panel END*/
 
 	/*post*/
+		/*post-forms*/
 		.new_post>#post_text, .edit_post>#post_text{
-			height: 400px;
+			height: 200px;
 			max-width: 1115px;
 		}
+		.emotion{
+			cursor: pointer;
+		}
+		/*post-forms END*/
 
 		.post-list>.avatar>center>a>img{
 			max-height: 120px;
