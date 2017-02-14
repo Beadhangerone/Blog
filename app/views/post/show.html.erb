@@ -60,7 +60,8 @@
 			<%=  form_for @comment , url: post_comment_index_path($post), method: :post do |f|%>
 
 				<%= f.label :comment%> <%=icon("comment")%>
-				<%= f.text_area :text, class: 'form-control' %>
+				<%= f.text_area :text, class: 'form-control post-comment-field smile-able-input' %>
+				<%=render partial: "/partials/emoticons"%>
 				<br>
 				<%= button_tag(type: 'submit', class: 'btn btn-default') do %>
 					<%=icon("ok")%> Add a comment

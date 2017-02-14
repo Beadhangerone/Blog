@@ -27,6 +27,9 @@ hr{
 
 
 /*custom*/
+	.btn{
+		padding: 0.3rem 0.5rem;
+	}
 
 	/*thumbnails*/
 		.thumbnail-sm{
@@ -353,18 +356,22 @@ hr{
 		}
 	/*search END*/
 
-
-	/*comment-panel*/
-		.comment-panel>.panel-heading{
-			padding: 3px; 
-			padding-bottom: 0px;
+	/*comments*/
+		.post-comment-field{
+			font-size: 1.6rem;
 		}
-		.comment-arrow-up{
-			margin-left: 13px;
-			margin-top: 3px;
-		}
+		/*comment-panel*/
+			.comment-panel>.panel-heading{
+				padding: 3px; 
+				padding-bottom: 0px;
+			}
+			.comment-arrow-up{
+				margin-left: 13px;
+				margin-top: 3px;
+			}
 
-	/*comment-panel END*/
+		/*comment-panel END*/
+	/*comments END*/
 
 	/*profile*/
 	.avatar{
