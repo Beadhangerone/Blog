@@ -12,7 +12,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
-        <li class="<%=active?([followings_posts_path, liked_posts_path, post_index_path])%>">  
+        <li class="<%=active?([followings_posts_path, liked_posts_path, post_index_path])%>">
           <a href="<%=post_index_path%>">
             <%=icon("list-alt")%> Post feed
           </a>
@@ -28,7 +28,7 @@
 
           <li class="<%=active?([user_followers_path(current_user.username)])%>">
             <%=link_to "Followers", user_followers_path(current_user.username)%>
-          <li class="<%=active?([user_followings_path(current_user.username)])%>">  
+          <li class="<%=active?([user_followings_path(current_user.username)])%>">
             <%=link_to "Followings", user_followings_path(current_user.username)%>
           <li class="dropdown">
             <a href="<%=profile_path%>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@
         <%else%>
           <li class="<%=active?([new_user_session_path])%>">
             <a href="<%=new_user_session_path%>">
-            <%=icon("log-in")%> Sign in</a>                   
+            <%=icon("log-in")%> Sign in</a>
           </li>
           <li class="<%=active?([new_user_registration_path])%>">
             <a href="<%=new_user_registration_path%>">
