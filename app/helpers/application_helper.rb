@@ -7,8 +7,8 @@ module ApplicationHelper
   end
 
 
-  def icon (name)
-    render html:"<span class='glyphicon glyphicon-#{name}'></span>".html_safe
+  def icon (name, style='')
+    render html:"<span style='#{style}' class='glyphicon glyphicon-#{name}'></span>".html_safe
   end
 
   def error_message (hash)
@@ -26,7 +26,7 @@ module ApplicationHelper
   def active? (urls)
     urls.each do |url|
       if current_page?("#{url}")
-        return 'active' 
+        return 'active'
       end
     end
   end

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  require 'carrierwave/processing/rmagick'
   include ApplicationHelper
   layout "application"
   protect_from_forgery with: :exception

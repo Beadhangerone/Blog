@@ -12,16 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170205181248) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "comments", force: :cascade do |t|
     t.text     "text"
     t.integer  "post_id"
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "followers", force: :cascade do |t|
@@ -29,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170205181248) do
     t.integer  "follower_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["follower_id"], name: "index_followers_on_follower_id", using: :btree
-    t.index ["user_id"], name: "index_followers_on_user_id", using: :btree
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -38,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170205181248) do
     t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_likes_on_post_id", using: :btree
+    t.index ["post_id"], name: "index_likes_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -64,8 +61,8 @@ ActiveRecord::Schema.define(version: 20170205181248) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "avatar"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end

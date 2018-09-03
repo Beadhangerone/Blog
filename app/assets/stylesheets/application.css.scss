@@ -79,6 +79,11 @@ hr{
 	/*margins END*/
 
 	/*news panel*/
+		.post-list {
+	    display: flex;
+	    flex-direction: row;
+	    align-items: center;
+		}
 		.news-panel{
 			border-color: #4585BD;
 		}
@@ -109,14 +114,14 @@ hr{
 		}
 		/*post-forms END*/
 
-		.post-list>.avatar>center>a>img{
-			max-height: 120px;
-			width: auto;
-			margin: auto;
-			margin-left: 20%;
-		}
+		// .post-list>.avatar>center>a>img{
+		// 	max-height: 120px;
+		// 	width: auto;
+		// 	margin: auto;
+		// 	margin-left: 20%;
+		// }
 		.post-list>.info{
-			margin-top: 1.7%;
+			// margin-top: 1.7%;
 		}
 
 		.post{padding: 3.5% 2%}
@@ -177,6 +182,7 @@ hr{
 
 	.img-thumbnail{
 		padding: 0;
+    max-height: 230px
 	}
 	.avatar>a>.img-thumbnail{
 		width: 100%;

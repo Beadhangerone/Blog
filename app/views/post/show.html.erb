@@ -3,7 +3,7 @@
 	<div class="border row">
 		<div class="col-md-9 col-sm-9 col-xs-12 ">
 			<div class="well well-lg post">
-				<h1 class="post-title"><%= $post.title %></h1>
+					<center><h1 class="post-title"><%= $post.title %></h1></center>
 					<div class="post-cover-img">
 						<center>
 							<%= image_tag($post.cover, class: "cover")%>
@@ -12,7 +12,7 @@
 				<div class="well-md">
 					<%=breaklines_on($post.text)%>
 				</div>
-			</div>			
+			</div>
 		</div>
 		<div class="col-sm-3 col-xs-12 post-info">
 				<div class="border well-sm credits">
@@ -28,15 +28,15 @@
 						<a class="list-group-item" href="<%=edit_post_path($post)%>">
 							<%=icon("pencil")%> Edit
 						</a>
-						
+
 					<%else%>
 						<% if user_signed_in? and @likers.include?(current_user.username) %>
-							<a class="list-group-item" rel="nofollow" data-method="delete" 
-							href="<%=unlike_post_path($post)%>"><%=icon("thumbs-down")%> Unlike</a>
+							<a class="list-group-item" rel="nofollow" data-method="delete"
+							href="<%=unlike_post_path($post)%>"><%=icon("thumbs-up", 'color:#337ab7')%> You like it!</a>
 						<% else %>
-							<a class="list-group-item" data-method="post" 
-							href="<%=like_post_path($post)%>"> 
-								<%=icon("thumbs-up")%> Like this post
+							<a class="list-group-item" data-method="post"
+							href="<%=like_post_path($post)%>">
+								<%=icon("thumbs-up")%> Like this post!
 							</a>
 						<%end%>
 					<%end%>
@@ -44,8 +44,8 @@
 			<center>
 				<a toggle="tooltip" title="<%=@likers.join(', ')%>" style="cursor: pointer">
 					<%=@likers.length%>
-				</a> 
-				people liked it
+				</a>
+				people like it
 			</center>
 		</div>
 	</div>
@@ -78,5 +78,3 @@
 
 		</div>
 	</div>
-
-

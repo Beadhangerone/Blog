@@ -4,12 +4,13 @@
 	<%posts.each do |post|%>
 	<%if avatar%>
 		<div class="row post-list">
-			<div class="avatar col-md-2 col-sm-3 hidden-xs">
+			<div class="avatar col-sm-4 col-md-3 hidden-xs">
 				<center>
-					<%=render partial: "partials/avatar", locals: {resource: user_by_id(post.author_id), cls: "img-circle"}%>
+					<%=link_to(image_tag(post.cover, class:'img-thumbnail'), post_path(post))%>
+					<!-- <%=render partial: "partials/avatar", locals: {resource: user_by_id(post.author_id), cls: "img-circle"}%> -->
 				</center>
 			</div>
-			<div class="info col-md-10">
+			<div class="info col-sm-8 col-md-9">
 				<h2><a href="<%=post_path(post)%>"><%=post.title%></a>
 				</h2>
 				<b>Posted by:</b> <%=link_to_user(user_by_id(post.author_id)) %><br>

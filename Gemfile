@@ -1,18 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 gem 'devise'
 
 gem 'carrierwave'
 gem 'carrierwave-dropbox'
+gem 'rmagick'
 
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma'
